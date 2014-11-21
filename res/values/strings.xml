@@ -3,5 +3,10 @@
 
     <string name="app_name">IntoxicatedApp</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title1">Intoxicated</string>
+    <string name="title2">app</string>
+    <string name="button1">Play</string>
+    <string name="button2">Advices</string>
+    <string name="imgDescription">Logo</string>
 
 </resources>
