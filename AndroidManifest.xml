@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".GamesActivity" 
+            android:label="@string/PlayTitle">            
+        </activity>
+        <activity
+            android:name=".AdvicesActivity"
+            android:label="@string/AdvicesTitle">            
+        </activity>
     </application>
 
 </manifest>
