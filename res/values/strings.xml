@@ -10,11 +10,11 @@
     <string name="PlayTitle">Play</string>
     <string name="AdvicesTitle">Advices</string>
     
-    <!--  Butões -->
+    <!--  Botões -->
     <string name="button1">Play</string>
     <string name="button2">Advices</string>     
-    <string name="g1button"> Test your balance</string>
-    <string name="g2button"> Test your focus</string>  
+    <string name="g1button">Test your balance</string>
+    <string name="g2button">Test your focus</string>  
     
     <!-- Descrições -->
     <string name="imgDescription">Logo</string>
