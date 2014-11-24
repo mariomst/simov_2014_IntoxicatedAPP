@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">IntoxicatedApp</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <!-- Titulos -->
+    <string name="title1">Intoxicated</string>
+    <string name="title2">app</string>
+    <string name="PlayTitle">Jogar</string>
+    <string name="AdvicesTitle">Conselhos</string>
+    <string name="AboutTitle">Sobre</string>
+    
+    <!--  Botões -->
+    <string name="button1">Jogar</string>
+    <string name="button2">Conselhos</string>     
+    <string name="g1button">Teste o seu equilíbrio</string>
+    <string name="g2button">Teste a sua concentração</string>  
+    
+    <!-- Descrições -->
+    <string name="imgDescription">Logo</string>
+    <string name="g1Description">Teste o seu equilíbrio</string>
+    <string name="g2Description">Teste a sua concentração</string>
+    
+    <!-- Opções Menus -->
+    <string name="settings">Definições</string>
+    <string name="about">Sobre</string>
+    
+    <!-- Autores -->
+    <string name="autores">Autores:</string>
+    <string name="autor1">(1090626) Mário Teixeira</string>
+    <string name="autor2">(1100640) Marta Graça</string>
+    <string name="autor3">(1110637) Sara Rego</string>
+    
+</resources>

@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-public class AdvicesActivity extends Activity {
+public class AboutActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_advices);
+		setContentView(R.layout.activity_about);
 		getActionBar().setDisplayHomeAsUpEnabled(true);		
 	}
 	
@@ -32,4 +32,5 @@ public class AdvicesActivity extends Activity {
 				return true;
 			}
 		}	
+	
 }

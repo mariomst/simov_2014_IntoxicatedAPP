@@ -30,6 +30,10 @@
             android:name=".AdvicesActivity"
             android:label="@string/AdvicesTitle">            
         </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/AboutTitle">            
+        </activity>
     </application>
 
 </manifest>
