@@ -41,12 +41,15 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch(item.getItemId()){
 			case R.id.action_settings: 
+				// Criar activity "settings"
+				Intent is = new Intent(MainActivity.this, SettingsActivity.class);
+				startActivity(is);
 				Log.i(getString(R.string.app_name),"SettingsActivity created.");
 				return true;
 			case R.id.action_about:
 				// Criar activity "about"
-            	Intent i = new Intent(MainActivity.this, AboutActivity.class);
-            	startActivity(i);
+            	Intent ia = new Intent(MainActivity.this, AboutActivity.class);
+            	startActivity(ia);
 				Log.i(getString(R.string.app_name),"AboutActivity created.");
 				return true;
 			default:

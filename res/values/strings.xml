@@ -10,6 +10,7 @@
     <string name="PlayTitle">Play</string>
     <string name="AdvicesTitle">Advices</string>
     <string name="AboutTitle">About</string>
+    <string name="SettingsTitle">Settings</string>
     
     <!--  Botões -->
     <string name="button1">Play</string>
@@ -32,6 +33,9 @@
     <string name="autor2">(1100640) Marta Graça</string>
     <string name="autor3">(1110637) Sara Rego</string>
     
+    <!-- Versão -->
+    <string name="version">Version:</string>
+    <string name="version_num">0.1</string>    
     
 
 </resources>

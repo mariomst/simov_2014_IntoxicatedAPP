@@ -10,6 +10,7 @@
     <string name="PlayTitle">Jogar</string>
     <string name="AdvicesTitle">Conselhos</string>
     <string name="AboutTitle">Sobre</string>
+    <string name="SettingsTitle">Definições</string>
     
     <!--  Botões -->
     <string name="button1">Jogar</string>
@@ -31,5 +32,9 @@
     <string name="autor1">(1090626) Mário Teixeira</string>
     <string name="autor2">(1100640) Marta Graça</string>
     <string name="autor3">(1110637) Sara Rego</string>
+    
+    <!-- Versão -->
+    <string name="version">Versão:</string>
+    <string name="version_num">0.1</string>
     
 </resources>
