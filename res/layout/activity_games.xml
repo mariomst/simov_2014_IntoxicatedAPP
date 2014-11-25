@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
     
-    <Button
+    <ImageButton
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,18 +13,16 @@
         android:layout_marginBottom="37dp"
         android:background="@android:color/holo_red_light"
         android:contentDescription="@string/g1Description"
-        android:drawableLeft="@drawable/balance_icon"
-        android:text="@string/g1button" />
+        android:src="@drawable/balance" />        
     
-    <Button
+    <ImageButton
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_purple"
-        android:contentDescription="@string/g2Description"
-        android:drawableLeft="@drawable/focus_icon"
-        android:text="@string/g2button" 
+        android:contentDescription="@string/g2Description"        
         android:layout_centerInParent="true"
+        android:src="@drawable/focus"
         />
     
 

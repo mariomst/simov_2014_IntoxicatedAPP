@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class GamesActivity extends Activity {
 
@@ -38,8 +39,8 @@ public class GamesActivity extends Activity {
 		}	
 
 	public void optionSelected(){
-		Button game1 = (Button) findViewById(R.id.button1);
-    	Button game2 = (Button) findViewById(R.id.button2);
+		ImageButton game1 = (ImageButton) findViewById(R.id.button1);
+    	ImageButton game2 = (ImageButton) findViewById(R.id.button2);
     	
     	game1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
