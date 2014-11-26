@@ -19,10 +19,19 @@
     	android:textOff="Gyroscope off"
     	android:onClick="onToggleClicked_gyro"/>
     
+    <ToggleButton 
+        android:id="@+id/button_accel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"        
+        android:layout_marginTop="65dp"
+        android:textOn="Accelerometer on"
+    	android:textOff="Accelerometer off"
+    	android:onClick="onToggleClicked_accel"/>
+    
     <TextView 
         android:id="@+id/textView_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"   
-        android:layout_marginTop="260dp"/>
+        android:layout_marginTop="80dp"/>
 
 </LinearLayout>

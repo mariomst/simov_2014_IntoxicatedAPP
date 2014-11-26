@@ -17,6 +17,7 @@
     <string name="button_games">Play</string>
     <string name="button_advices">Advices</string>   
     <string name="button_gyro">Gyroscope</string>  
+    <string name="button_accel">Accelerometer</string>
     
     <!-- Descrições -->
     <string name="imgDescription">Logo</string>
