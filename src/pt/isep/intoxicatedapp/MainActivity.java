@@ -52,6 +52,12 @@ public class MainActivity extends Activity {
             	startActivity(ia);
 				Log.i(getString(R.string.app_name),"AboutActivity created.");
 				return true;
+			case R.id.action_tests:
+				// Criar activity "tests"
+				Intent it = new Intent(MainActivity.this, TestsActivity.class);
+            	startActivity(it);
+				Log.i(getString(R.string.app_name),"TestsActivity created.");
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);	
 		}		
@@ -59,8 +65,8 @@ public class MainActivity extends Activity {
 
 	public void optionSelected(){
     	
-    	games = (Button) findViewById(R.id.button1);
-    	advices = (Button) findViewById(R.id.button2);
+    	games = (Button) findViewById(R.id.button_games);
+    	advices = (Button) findViewById(R.id.button_advices);
     	
     	games.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

@@ -11,21 +11,26 @@
     <string name="AdvicesTitle">Conselhos</string>
     <string name="AboutTitle">Sobre</string>
     <string name="SettingsTitle">Definições</string>
+    <string name="TestsTitle">Testes</string>
     
     <!--  Botões -->
-    <string name="button1">Jogar</string>
-    <string name="button2">Conselhos</string>     
-    <string name="g1button">Teste o seu equilíbrio</string>
-    <string name="g2button">Teste a sua concentração</string>  
+    <string name="button_games">Jogar</string>
+    <string name="button_advices">Conselhos</string>    
+    <string name="button_gyro">Giroscópio</string> 
     
     <!-- Descrições -->
     <string name="imgDescription">Logo</string>
     <string name="g1Description">Teste o seu equilíbrio</string>
     <string name="g2Description">Teste a sua concentração</string>
+    <string name="ad1Description">Como controlar a bebida</string>
+    <string name="ad2Description">Como lidar com a ressaca</string>
+    <string name="ad3Description">% De Álcool"</string>
+    <string name="testsDescription">Apenas para testes</string>
     
     <!-- Opções Menus -->
     <string name="settings">Definições</string>
     <string name="about">Sobre</string>
+    <string name="tests">Testes</string>
     
     <!-- Autores -->
     <string name="autores">Autores:</string>

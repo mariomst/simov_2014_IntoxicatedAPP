@@ -38,6 +38,10 @@
             android:name=".SettingsActivity"
             android:label="@string/SettingsTitle">
         </activity>
+        <activity 
+            android:name=".TestsActivity"
+            android:label="@string/TestsTitle">            
+        </activity>
     </application>
 
 </manifest>

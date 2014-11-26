@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class GamesActivity extends Activity {
 
@@ -38,20 +38,27 @@ public class GamesActivity extends Activity {
 			}
 		}	
 
+	/**
+	 * Acções para os botões apresentados na activity "GamesActivity"
+	 */
 	public void optionSelected(){
-		ImageButton game1 = (ImageButton) findViewById(R.id.button1);
-    	ImageButton game2 = (ImageButton) findViewById(R.id.button2);
+		ImageButton game1 = (ImageButton) findViewById(R.id.button_game1);
+    	ImageButton game2 = (ImageButton) findViewById(R.id.button_game2);
     	
     	game1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Abrir minijogo 1            	
+                // Abrir minijogo 1
+            	Toast.makeText(getApplicationContext(), "Not yet implemented... Sorry",
+            			Toast.LENGTH_SHORT).show();
             	Log.i(getString(R.string.app_name),"Starting minigame 1.");
             }
         });
     	
     	game2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Abrir minijogo 2            	
+                // Abrir minijogo 2     
+            	Toast.makeText(getApplicationContext(), "Not yet implemented... Sorry",
+            			Toast.LENGTH_SHORT).show();
             	Log.i(getString(R.string.app_name),"Starting minigame 2.");
             }
         });

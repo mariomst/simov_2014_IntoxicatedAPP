@@ -25,21 +25,21 @@
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button_games"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="60dp"
-        android:text="@string/button1" />
+        android:text="@string/button_games" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_advices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
+        android:layout_alignBottom="@+id/button_games"
         android:layout_alignRight="@+id/textView1"
-        android:text="@string/button2" />
+        android:text="@string/button_advices" />
 
     <ImageView
         android:id="@+id/imageView1"

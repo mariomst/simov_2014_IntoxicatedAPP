@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical" >
     
+    <ImageButton
+        android:id="@+id/button_drinking"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_above="@+id/button_hangover"
+        android:layout_alignLeft="@+id/button_hangover"
+        android:layout_marginBottom="37dp"
+        android:background="@drawable/drinking"
+        android:contentDescription="@string/ad1Description" />        
+    
+    <ImageButton
+        android:id="@+id/button_hangover"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/hangover"
+        android:contentDescription="@string/ad2Description"        
+        android:layout_centerInParent="true" />
+    
+    <ImageButton 
+        android:id="@+id/button_alchool"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/button_hangover"
+        android:layout_alignLeft="@+id/button_hangover"
+        android:background="@drawable/alchool"
+        android:layout_marginTop="37dp"
+        android:contentDescription="@string/ad3Description"/>
 
-</LinearLayout>
+</RelativeLayout>
