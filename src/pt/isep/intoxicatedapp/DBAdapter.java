@@ -1,7 +1,10 @@
 package pt.isep.intoxicatedapp;
 
+import java.util.ArrayList;
+
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -27,12 +30,35 @@ public class DBAdapter {
 	private static final String SELECT_CONTACTS = "SELECT * FROM " + TABLE_CONTACTS;
 	
 	public DBAdapter(Context context){
-		dbHelper_scores = new DBHelper(context, TABLE_SCORES, GAME_ID + " INTEGER, " + SCORE + " TEXT");
+		dbHelper_scores = new DBHelper(context, TABLE_SCORES, GAME_ID + " INTEGER, " + SCORE + " DOUBLE");
 		dbHelper_contacts = new DBHelper(context, TABLE_CONTACTS, CONTACT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT, " + PHONE_NUMBER + " TEXT");		
 	}
 	
+	/*Obter Scores*/
+	public ArrayList<Score> getScores(){
+		ArrayList<Score> scores = new ArrayList<Score>();
+		SQLiteDatabase sqliteDB = dbHelper_scores.getReadableDatabase();
+		Cursor crsr = sqliteDB.rawQuery(SELECT_SCORES, null);
+		crsr.moveToFirst();
+		for(int i=0; i<crsr.getCount(); i++){
+			scores.add(new Score(crsr.getInt(0), crsr.getDouble(1)));
+			crsr.moveToNext();
+		}
+		return scores;
+	}
+	
+	/*Obter Score*/
+	public Score getScore(int gameID) {
+        SQLiteDatabase sqliteDB = dbHelper_scores.getReadableDatabase();
+        String s = "SELECT * FROM " + TABLE_SCORES + " WHERE " + GAME_ID + "=" + gameID;
+        Cursor crsr = sqliteDB.rawQuery(s, null);
+        crsr.moveToFirst();
+        Score scr = new Score(crsr.getInt(0), crsr.getDouble(1));
+        return scr;
+    }
+	
 	/*Inserir novo score*/
-	public boolean insertScore(int gameID, String Score){
+	public boolean insertScore(int gameID, double Score){
 		try{
 			SQLiteDatabase sql = dbHelper_scores.getWritableDatabase();
 			ContentValues values = new ContentValues();
@@ -46,8 +72,8 @@ public class DBAdapter {
 		return true;
 	}
 	
-	/*Atualizar Scores*/
-	public boolean updateScore(int gameID, String Score){
+	/*Atualizar score*/
+	public boolean updateScore(int gameID, double Score){
 		try{
 			SQLiteDatabase sql = dbHelper_scores.getWritableDatabase();
 			ContentValues values = new ContentValues();
@@ -72,4 +98,71 @@ public class DBAdapter {
 		}
 		return true;
 	}	
+
+	/*Obter Contactos*/
+	public ArrayList<Contact> getContacts(){
+		ArrayList<Contact> contacts = new ArrayList<Contact>();
+		SQLiteDatabase sqliteDB = dbHelper_contacts.getReadableDatabase();
+		Cursor crsr = sqliteDB.rawQuery(SELECT_CONTACTS, null);
+		crsr.moveToFirst();
+		for(int i=0; i<crsr.getCount(); i++){
+			contacts.add(new Contact(crsr.getInt(0), crsr.getString(1), crsr.getString(2)));
+			crsr.moveToNext();
+		}
+		return contacts;
+	}
+
+	/*Obter Contacto*/
+	public Contact getContact(int contactID){
+		SQLiteDatabase sqliteDB = dbHelper_contacts.getReadableDatabase();
+		String s = "SELECT * FROM " + TABLE_CONTACTS + " WHERE " + CONTACT_ID + "=" + contactID;
+		Cursor crsr = sqliteDB.rawQuery(s, null);
+		crsr.moveToFirst();
+		Contact cnt = new Contact(crsr.getInt(0), crsr.getString(1), crsr.getString(2));
+		return cnt;
+	}
+
+	/*Inserir novo contacto*/
+	public boolean insertContact(int contactID, String name, String phoneNumber){
+		try{
+			SQLiteDatabase sql = dbHelper_contacts.getWritableDatabase();
+			ContentValues values = new ContentValues();
+			values.put(CONTACT_ID, contactID);
+			values.put(NAME, name);
+			values.put(PHONE_NUMBER, phoneNumber);
+			sql.insert(TABLE_CONTACTS, null, values);
+		} catch (SQLException sqlerror) {
+			Log.v("Insert into table Contacts failed with error: ", sqlerror.getMessage());
+			return false;
+		}
+		return true;
+	}
+
+	/*Atualizar contacto*/
+	public boolean updateContact(int contactID, String name, String phoneNumber){
+		try{
+			SQLiteDatabase sql = dbHelper_contacts.getWritableDatabase();
+			ContentValues values = new ContentValues();
+			values.put(CONTACT_ID, contactID);
+			values.put(NAME, name);
+			values.put(PHONE_NUMBER, phoneNumber);
+			sql.update(TABLE_CONTACTS, values, CONTACT_ID + "=" + contactID, null);
+		} catch (SQLException sqlerror){
+			Log.v("Update value in table Contacts failed with error: ", sqlerror.getMessage());
+			return false;
+		}
+		return true;
+	}
+
+	/*Eliminar contacto*/
+	public boolean deleteContact(int contactID){
+		try{
+			SQLiteDatabase sql = dbHelper_contacts.getWritableDatabase();
+			sql.delete(TABLE_CONTACTS, CONTACT_ID + "=" + contactID, null);
+		} catch (SQLException sqlerror){
+			Log.v("Delete value in table Contacts failed with error: ", sqlerror.getMessage());
+			return false;
+		}
+		return true;
+	}
 }
