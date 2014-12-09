@@ -1,8 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
+    <TextView
+        android:id="@+id/contacts_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Contacts_Text"/>
+    
+    /**************************************************************************/
+    /* Contacto 1															  */
+    /**************************************************************************/
+    
+    <ImageButton 
+        android:id="@+id/add_contact_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contacts_title"
+        android:background="@drawable/add"
+        android:contentDescription="@string/Contacts_Add" />
+    
+    <ImageButton 
+        android:id="@+id/remove_contact_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/add_contact_1"
+        android:layout_alignBottom="@+id/add_contact_1"
+        android:layout_toRightOf="@+id/add_contact_1"
+        android:background="@drawable/remove"
+        android:contentDescription="@string/Contacts_Remove" />
+    
+    <ImageButton 
+        android:id="@+id/info_contact_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/remove_contact_1"
+        android:layout_alignBottom="@+id/remove_contact_1"
+        android:layout_toRightOf="@+id/remove_contact_1"
+        android:background="@drawable/info"
+        android:contentDescription="@string/Contacts_Info" />    
+    
+    <TextView
+        android:id="@+id/contact_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/info_contact_1"
+        android:layout_alignBottom="@+id/info_contact_1"
+        android:layout_toRightOf="@+id/info_contact_1"
+        android:text="@string/Contact_1" />
+    
+    /**************************************************************************/
+    /* Contacto 2															  */
+    /**************************************************************************/
+        
+    <ImageButton 
+        android:id="@+id/add_contact_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_contact_1"
+        android:background="@drawable/add"
+        android:contentDescription="@string/Contacts_Add" />
+    
+    <ImageButton 
+        android:id="@+id/remove_contact_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/add_contact_2"
+        android:layout_alignBottom="@+id/add_contact_2"
+        android:layout_toRightOf="@+id/add_contact_2"
+        android:background="@drawable/remove"
+        android:contentDescription="@string/Contacts_Remove" />
+    
+    <ImageButton 
+        android:id="@+id/info_contact_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/remove_contact_2"
+        android:layout_alignBottom="@+id/remove_contact_2"
+        android:layout_toRightOf="@+id/remove_contact_2"
+        android:background="@drawable/info"
+        android:contentDescription="@string/Contacts_Info" />    
+    
+    <TextView
+        android:id="@+id/contact_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/info_contact_2"
+        android:layout_alignBottom="@+id/info_contact_2"
+        android:layout_toRightOf="@+id/info_contact_2"
+        android:text="@string/Contact_2" />
+    
+    /**************************************************************************/
+    /* Contacto 3															  */
+    /**************************************************************************/
+    
+    <ImageButton 
+        android:id="@+id/add_contact_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_contact_2"
+        android:background="@drawable/add"
+        android:contentDescription="@string/Contacts_Add" />
+    
+    <ImageButton 
+        android:id="@+id/remove_contact_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/add_contact_3"
+        android:layout_alignBottom="@+id/add_contact_3"
+        android:layout_toRightOf="@+id/add_contact_3"
+        android:background="@drawable/remove"
+        android:contentDescription="@string/Contacts_Remove" />
+    
+    <ImageButton 
+        android:id="@+id/info_contact_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/remove_contact_3"
+        android:layout_alignBottom="@+id/remove_contact_3"
+        android:layout_toRightOf="@+id/remove_contact_3"
+        android:background="@drawable/info"
+        android:contentDescription="@string/Contacts_Info" />    
+    
+    <TextView
+        android:id="@+id/contact_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/info_contact_3"
+        android:layout_alignBottom="@+id/info_contact_3"
+        android:layout_toRightOf="@+id/info_contact_3"
+        android:text="@string/Contact_3" />
 
-</LinearLayout>
+           
+
+    
+
+</RelativeLayout>

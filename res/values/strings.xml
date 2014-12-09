@@ -33,6 +33,15 @@
     <string name="about">About</string>
     <string name="tests">Tests</string>
     
+    <!-- Activity Definições -->
+    <string name="Contacts_Text">Contacts</string>
+    <string name="Contacts_Add">Add</string>
+    <string name="Contacts_Remove">Remove</string>
+    <string name="Contacts_Info">Informations</string>
+    <string name="Contact_1">Contact 1</string>
+    <string name="Contact_2">Contact 2</string>
+    <string name="Contact_3">Contact 3</string>
+    
     <!-- Autores -->
     <string name="autores">Authors:</string>
     <string name="autor1">(1090626) Mário Teixeira</string>
@@ -42,6 +51,5 @@
     <!-- Versão -->
     <string name="version">Version:</string>
     <string name="version_num">0.1</string>    
-    
 
 </resources>
