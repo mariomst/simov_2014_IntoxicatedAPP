@@ -36,6 +36,7 @@
     <!-- Activity Definições -->
     <string name="Contacts_Text">Contactos</string>
     <string name="Contacts_Add">Adicionar</string>
+    <string name="Contacts_Edit">Editar</string>
     <string name="Contacts_Remove">Remover</string>
     <string name="Contacts_Info">Informações</string>
     <string name="Contact_1">Contacto 1</string>

@@ -43,6 +43,10 @@
             android:label="@string/Contact_Title">            
         </activity>
         <activity 
+            android:name=".EditContactActivity"
+            android:label="@string/Contact_Title">            
+        </activity>
+        <activity 
             android:name=".TestsActivity"
             android:label="@string/TestsTitle">            
         </activity>
