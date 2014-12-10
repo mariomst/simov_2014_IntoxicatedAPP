@@ -10,15 +10,14 @@
         android:layout_height="wrap_content"
         android:text="@string/Contacts_Text"/>
     
-    /**************************************************************************/
-    /* Contacto 1															  */
-    /**************************************************************************/
+    <!-- Contacto 1 -->    
     
     <ImageButton 
         android:id="@+id/add_contact_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/contacts_title"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/add"
         android:contentDescription="@string/Contacts_Add" />
     
@@ -49,17 +48,17 @@
         android:layout_alignBaseline="@+id/info_contact_1"
         android:layout_alignBottom="@+id/info_contact_1"
         android:layout_toRightOf="@+id/info_contact_1"
+        android:layout_marginLeft="10dp"
         android:text="@string/Contact_1" />
     
-    /**************************************************************************/
-    /* Contacto 2															  */
-    /**************************************************************************/
+    <!-- Contacto 2 -->  
         
     <ImageButton 
         android:id="@+id/add_contact_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/add_contact_1"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/add"
         android:contentDescription="@string/Contacts_Add" />
     
@@ -90,17 +89,17 @@
         android:layout_alignBaseline="@+id/info_contact_2"
         android:layout_alignBottom="@+id/info_contact_2"
         android:layout_toRightOf="@+id/info_contact_2"
+        android:layout_marginLeft="10dp"
         android:text="@string/Contact_2" />
     
-    /**************************************************************************/
-    /* Contacto 3															  */
-    /**************************************************************************/
+    <!-- Contacto 3 -->  
     
     <ImageButton 
         android:id="@+id/add_contact_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/add_contact_2"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/add"
         android:contentDescription="@string/Contacts_Add" />
     
@@ -131,6 +130,7 @@
         android:layout_alignBaseline="@+id/info_contact_3"
         android:layout_alignBottom="@+id/info_contact_3"
         android:layout_toRightOf="@+id/info_contact_3"
+        android:layout_marginLeft="10dp"
         android:text="@string/Contact_3" />
 
            

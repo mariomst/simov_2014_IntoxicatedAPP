@@ -41,6 +41,8 @@
     <string name="Contact_1">Contact 1</string>
     <string name="Contact_2">Contact 2</string>
     <string name="Contact_3">Contact 3</string>
+    <string name="manual_add">Add new contact</string>
+    <string name="select_add">Select contact from contacts list</string>
     
     <!-- Autores -->
     <string name="autores">Authors:</string>
