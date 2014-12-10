@@ -39,6 +39,10 @@
             android:label="@string/SettingsTitle">
         </activity>
         <activity 
+            android:name=".AddContactActivity"
+            android:label="@string/Contact_Title">            
+        </activity>
+        <activity 
             android:name=".TestsActivity"
             android:label="@string/TestsTitle">            
         </activity>

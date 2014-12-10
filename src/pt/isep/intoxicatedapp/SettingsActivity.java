@@ -18,6 +18,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class SettingsActivity extends Activity {
+	
+	private int _id;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,22 +27,16 @@ public class SettingsActivity extends Activity {
 		setContentView(R.layout.activity_settings);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
-		/*
-		 * Criar base de dados de contactos caso ainda não foi criada
-		 */
+		/** Criar base de dados de contactos caso ainda não foi criada **/
 		DBAdapter adapter = new DBAdapter(getApplicationContext());
 
-		/*
-		 * Buscar contactos e inseri-los num array
-		 */
+		/** Buscar contactos e inseri-los num array **/
 		ArrayList<Contact> contacts = adapter.getContacts();
 
 		Toast.makeText(getApplicationContext(), "Contacts: " + contacts.size(),
 				Toast.LENGTH_SHORT).show();
 
-		/*
-		 * Adicionar onClickListeners nos botões relacionados com os contactos.
-		 */
+		/** Adicionar onClickListeners nos botões relacionados com os contactos **/
 		addContact();
 		removeContact();
 		infoContact();
@@ -63,9 +59,7 @@ public class SettingsActivity extends Activity {
 		}
 	}
 
-	/*
-	 * Acções para os botões apresentados na secção contactos - Adicionar
-	 */
+	/** Acções para os botões apresentados na secção contactos - Adicionar **/
 	public void addContact() {
 		final ImageButton contact1 = (ImageButton) findViewById(R.id.add_contact_1);
 		final ImageButton contact2 = (ImageButton) findViewById(R.id.add_contact_2);
@@ -74,6 +68,7 @@ public class SettingsActivity extends Activity {
 		contact1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				_id = 1;
 				registerForContextMenu(contact1);
 				openContextMenu(contact1);
 			}
@@ -82,6 +77,7 @@ public class SettingsActivity extends Activity {
 		contact2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				_id = 2;
 				registerForContextMenu(contact2);
 				openContextMenu(contact2);
 			}
@@ -90,36 +86,33 @@ public class SettingsActivity extends Activity {
 		contact3.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				_id = 3;
 				registerForContextMenu(contact3);
 				openContextMenu(contact3);
 			}
 		});
 	}
 
-	/*
-	 * Criar menu de contexto
-	 */
+	/** Criar menu de contexto **/
 	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		MenuInflater inf = getMenuInflater();
 		inf.inflate(R.menu.option_contacts, menu);
 	}
 
-	/*
-	 * Acções para os itens do menu de contexto
-	 */
+	/** Acções para os itens do menu de contexto **/
 	public boolean onContextItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.manual_add_contact:
-			// Intent i = new Intent(this, AddContactActivity.class);
-			// startActivity(i);
+			Intent i = new Intent(this, AddContactActivity.class);
+			i.putExtra("contactID", _id);
+			startActivity(i);
 			return true;
 		case R.id.select_contact:
 			// Abrir lista de contactos
 			Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-			intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
+			intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);			
 			startActivityForResult(intent, 1);
 			return true;
 		default:
@@ -144,7 +137,7 @@ public class SettingsActivity extends Activity {
 					if (c != null && c.moveToFirst()) {
 						String number = c.getString(0);
 						String name = c.getString(1);
-						showSelectedNumber(name, number);
+						addContact(name, number);
 					}
 				} finally {
 					if (c != null) {
@@ -155,14 +148,18 @@ public class SettingsActivity extends Activity {
 		}
 	}
 
-	public void showSelectedNumber(String type, String number) {
-		Toast.makeText(this, type + ": " + number, Toast.LENGTH_LONG).show();
+	private void addContact(String name, String number) {
+		DBAdapter adapter = new DBAdapter(getApplicationContext());
+		try{
+			adapter.insertContact(_id, name, number);
+			Toast.makeText(this, "Info: Contact added", Toast.LENGTH_SHORT).show();
+		} catch (Exception e){
+			Toast.makeText(this, "Error: Failed to add contact", Toast.LENGTH_SHORT).show();
+		}
 	}
 
-	/*
-	 * Acções para os botões apresentados na secção contactos - Remover
-	 */
-	public void removeContact() {
+	/** Acções para os botões apresentados na secção contactos - Remover **/
+	private void removeContact() {
 		ImageButton r_contact1 = (ImageButton) findViewById(R.id.remove_contact_1);
 		ImageButton r_contact2 = (ImageButton) findViewById(R.id.remove_contact_2);
 		ImageButton r_contact3 = (ImageButton) findViewById(R.id.remove_contact_3);
@@ -200,10 +197,8 @@ public class SettingsActivity extends Activity {
 		});
 	}
 
-	/*
-	 * Acções para os botões apresentados na secção contactos - Informações
-	 */
-	public void infoContact() {
+	/** Acções para os botões apresentados na secção contactos - Informações **/
+	private void infoContact() {
 		ImageButton i_contact1 = (ImageButton) findViewById(R.id.info_contact_1);
 		ImageButton i_contact2 = (ImageButton) findViewById(R.id.info_contact_2);
 		ImageButton i_contact3 = (ImageButton) findViewById(R.id.info_contact_3);

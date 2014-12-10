@@ -44,6 +44,11 @@
     <string name="manual_add">Adicionar novo contacto</string>
     <string name="select_add">Selecionar contacto da lista</string>
     
+    <!-- Activity Adicionar novo contacto -->
+    <string name="Contact_Title">Novo Contacto</string>
+    <string name="Contact_Name">Nome</string>
+    <string name="Contact_Number">Número</string>
+    
     <!-- Autores -->
     <string name="autores">Autores:</string>
     <string name="autor1">(1090626) Mário Teixeira</string>
