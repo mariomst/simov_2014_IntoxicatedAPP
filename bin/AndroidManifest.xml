@@ -10,6 +10,7 @@
     
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" /> 
 
     <application
         android:allowBackup="true"
@@ -27,6 +28,10 @@
         </activity>
         <activity
             android:name=".GamesActivity" 
+            android:label="@string/PlayTitle">            
+        </activity>
+        <activity
+            android:name=".Game1Activity" 
             android:label="@string/PlayTitle">            
         </activity>
         <activity
