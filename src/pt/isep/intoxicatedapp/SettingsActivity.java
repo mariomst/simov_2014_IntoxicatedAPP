@@ -15,36 +15,73 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SettingsActivity extends Activity {
 	
 	private int _id;
-
+	private int contactsSize;
+	private TextView c1, c2, c3;
+	private ImageButton a1, a2, a3, i1, i2, i3;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-
+		
 		/** Criar base de dados de contactos caso ainda não foi criada **/
 		DBAdapter adapter = new DBAdapter(getApplicationContext());
 
 		/** Buscar contactos e inseri-los num array **/
 		ArrayList<Contact> contacts = adapter.getContacts();
-
-		Toast.makeText(getApplicationContext(), "Contacts: " + contacts.size(),
-				Toast.LENGTH_SHORT).show();
+		
+		/** Associar as TextViews **/
+		c1 = (TextView) findViewById(R.id.contact_1);
+		c2 = (TextView) findViewById(R.id.contact_2);
+		c3 = (TextView) findViewById(R.id.contact_3);
+		
+		/** Associas aos botões **/
+		a1 = (ImageButton) findViewById(R.id.add_contact_1);
+		a2 = (ImageButton) findViewById(R.id.add_contact_2);
+		a3 = (ImageButton) findViewById(R.id.add_contact_3);
+		i1 = (ImageButton) findViewById(R.id.info_contact_1);
+		i2 = (ImageButton) findViewById(R.id.info_contact_2);
+		i3 = (ImageButton) findViewById(R.id.info_contact_3);
+		
+		/** Obter dimensão do array **/
+		contactsSize = contacts.size();
+		
+		if(contactsSize == 0){
+			String text = getString(R.string.Contact_1);
+			c1.setText(text);
+			c2.setVisibility(View.INVISIBLE);
+			c3.setVisibility(View.INVISIBLE);
+		} else if(contactsSize == 1){
+			String text = getString(R.string.Contact_2);
+			c2.setText(text);
+			c3.setVisibility(View.INVISIBLE);
+		} else if(contactsSize == 2){
+			String text = getString(R.string.Contact_3);
+			c3.setText(text);
+		}		
 
 		/** Adicionar onClickListeners nos botões relacionados com os contactos **/
+		refreshContacts();
 		addContact();
-		removeContact();
 		infoContact();
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+	}	
+
+	@Override
+	protected void onResume() {		
+		super.onResume();
+		refreshContacts();		
 	}
 
 	@Override
@@ -61,34 +98,30 @@ public class SettingsActivity extends Activity {
 
 	/** Acções para os botões apresentados na secção contactos - Adicionar **/
 	public void addContact() {
-		final ImageButton contact1 = (ImageButton) findViewById(R.id.add_contact_1);
-		final ImageButton contact2 = (ImageButton) findViewById(R.id.add_contact_2);
-		final ImageButton contact3 = (ImageButton) findViewById(R.id.add_contact_3);
-
-		contact1.setOnClickListener(new View.OnClickListener() {
+		a1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				_id = 1;
-				registerForContextMenu(contact1);
-				openContextMenu(contact1);
+				registerForContextMenu(a1);
+				openContextMenu(a1);
 			}
 		});
 
-		contact2.setOnClickListener(new View.OnClickListener() {
+		a2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				_id = 2;
-				registerForContextMenu(contact2);
-				openContextMenu(contact2);
+				registerForContextMenu(a2);
+				openContextMenu(a2);
 			}
 		});
 
-		contact3.setOnClickListener(new View.OnClickListener() {
+		a3.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				_id = 3;
-				registerForContextMenu(contact3);
-				openContextMenu(contact3);
+				registerForContextMenu(a3);
+				openContextMenu(a3);
 			}
 		});
 	}
@@ -108,6 +141,7 @@ public class SettingsActivity extends Activity {
 			Intent i = new Intent(this, AddContactActivity.class);
 			i.putExtra("contactID", _id);
 			startActivity(i);
+			refreshContacts();
 			return true;
 		case R.id.select_contact:
 			// Abrir lista de contactos
@@ -138,6 +172,7 @@ public class SettingsActivity extends Activity {
 						String number = c.getString(0);
 						String name = c.getString(1);
 						addContact(name, number);
+						refreshContacts();
 					}
 				} finally {
 					if (c != null) {
@@ -158,84 +193,101 @@ public class SettingsActivity extends Activity {
 		}
 	}
 
-	/** Acções para os botões apresentados na secção contactos - Remover **/
-	private void removeContact() {
-		ImageButton r_contact1 = (ImageButton) findViewById(R.id.remove_contact_1);
-		ImageButton r_contact2 = (ImageButton) findViewById(R.id.remove_contact_2);
-		ImageButton r_contact3 = (ImageButton) findViewById(R.id.remove_contact_3);
-
-		final DBAdapter adapter = new DBAdapter(getApplicationContext());
-
-		r_contact1.setOnClickListener(new View.OnClickListener() {
+	/** Acções para os botões apresentados na secção contactos - Informações **/
+	private void infoContact() {
+		
+		i1.setOnClickListener(new View.OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				int contactID = 1;
-				adapter.deleteContact(contactID);
-				Toast.makeText(getApplicationContext(),
-						"Removing contact 1...", Toast.LENGTH_SHORT).show();
+				DBAdapter adapter = new DBAdapter(getApplicationContext());
+				ArrayList<Contact> contacts = adapter.getContacts();
+				
+				_id = contacts.get(0).getID();
+				String m = contacts.get(0).getID() + ": " + contacts.get(0).getName();
+				Log.i(getString(R.string.app_name), m);
+				Intent intent = new Intent(SettingsActivity.this, EditContactActivity.class);
+				intent.putExtra("contactID", _id);
+				startActivity(intent);
 			}
 		});
 
-		r_contact2.setOnClickListener(new View.OnClickListener() {
+		i2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				int contactID = 2;
-				adapter.deleteContact(contactID);
-				Toast.makeText(getApplicationContext(),
-						"Removing contact 2...", Toast.LENGTH_SHORT).show();
+				DBAdapter adapter = new DBAdapter(getApplicationContext());
+				ArrayList<Contact> contacts = adapter.getContacts();
+				
+				_id = contacts.get(1).getID();
+				String m = contacts.get(1).getID() + ": " + contacts.get(1).getName();
+				Log.i(getString(R.string.app_name), m);
+				Intent intent = new Intent(SettingsActivity.this, EditContactActivity.class);
+				intent.putExtra("contactID", _id);
+				startActivity(intent);
 			}
 		});
 
-		r_contact3.setOnClickListener(new View.OnClickListener() {
+		i3.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				int contactID = 3;
-				adapter.deleteContact(contactID);
-				Toast.makeText(getApplicationContext(),
-						"Removing contact 3...", Toast.LENGTH_SHORT).show();
+				DBAdapter adapter = new DBAdapter(getApplicationContext());
+				ArrayList<Contact> contacts = adapter.getContacts();
+				
+				_id = contacts.get(2).getID();
+				String m = contacts.get(2).getID() + ": " + contacts.get(2).getName();
+				Log.i(getString(R.string.app_name), m);
+				Intent intent = new Intent(SettingsActivity.this, EditContactActivity.class);				
+				intent.putExtra("contactID", _id);
+				startActivity(intent);
 			}
 		});
 	}
 
-	/** Acções para os botões apresentados na secção contactos - Informações **/
-	private void infoContact() {
-		ImageButton i_contact1 = (ImageButton) findViewById(R.id.info_contact_1);
-		ImageButton i_contact2 = (ImageButton) findViewById(R.id.info_contact_2);
-		ImageButton i_contact3 = (ImageButton) findViewById(R.id.info_contact_3);
-
-		final DBAdapter adapter = new DBAdapter(getApplicationContext());
-
-		i_contact1.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				int contactID = 1;
-				// Intent intent = new Intent(this,
-				// ContactDetailsActivity.class);
-				// intent.putExtra("CONTACT_ID", contactID);
-				// startActivity(intent);
-			}
-		});
-
-		i_contact2.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				int contactID = 2;
-				// Intent intent = new Intent(this,
-				// ContactDetailsActivity.class);
-				// intent.putExtra("CONTACT_ID", contactID);
-				// startActivity(intent);
-			}
-		});
-
-		i_contact3.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				int contactID = 3;
-				// Intent intent = new Intent(this,
-				// ContactDetailsActivity.class);
-				// intent.putExtra("CONTACT_ID", contactID);
-				// startActivity(intent);
-			}
-		});
+	/** Atualização das TextViews relacionadas com os contactos **/
+	private void refreshContacts(){
+		DBAdapter adapter = new DBAdapter(getApplicationContext());
+		ArrayList<Contact> contacts = adapter.getContacts();
+		contactsSize = contacts.size();
+		
+		Toast.makeText(getApplicationContext(), "Contacts: " + contacts.size(),
+				Toast.LENGTH_SHORT).show();
+						
+		if(contactsSize == 0){
+			String text1 = getString(R.string.Contact_1);
+			
+			c1.setText(text1); c2.setVisibility(View.INVISIBLE); c3.setVisibility(View.INVISIBLE);
+			a1.setVisibility(View.VISIBLE); a2.setVisibility(View.INVISIBLE); a3.setVisibility(View.INVISIBLE);
+			i1.setVisibility(View.INVISIBLE); i2.setVisibility(View.INVISIBLE); i3.setVisibility(View.INVISIBLE);
+		} else if(contactsSize == 1){
+			String text1 = contacts.get(0).getName();
+			c1.setText(text1);
+			String text2 = getString(R.string.Contact_2);
+			c2.setText(text2);
+			
+			c1.setVisibility(View.VISIBLE); c2.setVisibility(View.VISIBLE); c3.setVisibility(View.INVISIBLE);
+			a1.setVisibility(View.INVISIBLE); a2.setVisibility(View.VISIBLE); a3.setVisibility(View.INVISIBLE);
+			i1.setVisibility(View.VISIBLE);	i2.setVisibility(View.INVISIBLE); i3.setVisibility(View.INVISIBLE);
+		} else if(contactsSize == 2){
+			String text1 = contacts.get(0).getName();
+			c1.setText(text1);
+			String text2 = contacts.get(1).getName();
+			c2.setText(text2);
+			String text3 = getString(R.string.Contact_3);
+			c3.setText(text3);
+			
+			c1.setVisibility(View.VISIBLE); c2.setVisibility(View.VISIBLE); c3.setVisibility(View.VISIBLE);
+			a1.setVisibility(View.INVISIBLE); a2.setVisibility(View.INVISIBLE); a3.setVisibility(View.VISIBLE);
+			i1.setVisibility(View.VISIBLE); i2.setVisibility(View.VISIBLE); i3.setVisibility(View.INVISIBLE);
+		} else {
+			String text1 = contacts.get(0).getName();
+			c1.setText(text1);
+			String text2 = contacts.get(1).getName();
+			c2.setText(text2);
+			String text3 = contacts.get(2).getName();
+			c3.setText(text3);
+			
+			c1.setVisibility(View.VISIBLE); c2.setVisibility(View.VISIBLE); c3.setVisibility(View.VISIBLE);
+			a1.setVisibility(View.INVISIBLE); a2.setVisibility(View.INVISIBLE); a3.setVisibility(View.INVISIBLE);
+			i1.setVisibility(View.VISIBLE); i2.setVisibility(View.VISIBLE); i3.setVisibility(View.VISIBLE);
+		}
 	}
 }

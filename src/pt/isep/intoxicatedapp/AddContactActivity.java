@@ -46,5 +46,13 @@ public class AddContactActivity extends Activity {
 				finish();
 			}
 		});
+		
+		/** Instruções para o botão Cancel **/
+		Button buttonCancel = (Button) findViewById(R.id.cancelButton);
+		buttonCancel.setOnClickListener(new OnClickListener(){
+			public void onClick(View arg0){
+				finish();
+			}
+		});
 	}
 }

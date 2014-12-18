@@ -26,7 +26,7 @@
     <string name="ad1Description">How to control drinking</string>
     <string name="ad2Description">How to deal with hangover</string>
     <string name="ad3Description">% of Alcohol</string>
-    <string name="testsDescription">Only for tests</string>
+    <string name="testsDescription">Tests</string>
     
     <!-- Opções Menus -->
     <string name="settings">Settings</string>
@@ -39,16 +39,27 @@
     <string name="Contacts_Edit">Edit</string>
     <string name="Contacts_Remove">Remove</string>
     <string name="Contacts_Info">Informations</string>
-    <string name="Contact_1">Contact 1</string>
-    <string name="Contact_2">Contact 2</string>
-    <string name="Contact_3">Contact 3</string>
+    <string name="Contact_1">Add contact 1</string>
+    <string name="Contact_2">Add contact 2</string>
+    <string name="Contact_3">Add contact 3</string>
     <string name="manual_add">Add new contact</string>
     <string name="select_add">Select contact from contacts list</string>
+    
+    <!-- Activity Tests -->
+    <string name="tests_sensors">Test Sensors</string>
+    <string name="tests_sms">Test SMS</string>
+    <string name="tests_sms_button">Send SMS</string>
+    <string name="tests_result">Result:</string>
     
     <!-- Activity Adicionar novo contacto -->
     <string name="Contact_Title">New Contact</string>
     <string name="Contact_Name">Name</string>
     <string name="Contact_Number">Number</string>
+    
+    <!-- Outros -->
+    <string name="cancel">Cancel</string>
+     <string name="error_message1">Error: No contacts found</string>
+     <string name="error_message2">Error: Message not sent</string>
     
     <!-- Autores -->
     <string name="autores">Authors:</string>
@@ -58,6 +69,6 @@
     
     <!-- Versão -->
     <string name="version">Version:</string>
-    <string name="version_num">0.1</string>    
+    <string name="version_num">0.5</string>    
 
 </resources>

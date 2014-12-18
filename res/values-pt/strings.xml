@@ -26,7 +26,7 @@
     <string name="ad1Description">Como controlar a bebida</string>
     <string name="ad2Description">Como lidar com a ressaca</string>
     <string name="ad3Description">% De Álcool"</string>
-    <string name="testsDescription">Apenas para testes</string>
+    <string name="testsDescription">Testes</string>
     
     <!-- Opções Menus -->
     <string name="settings">Definições</string>
@@ -35,29 +35,40 @@
     
     <!-- Activity Definições -->
     <string name="Contacts_Text">Contactos</string>
-    <string name="Contacts_Add">Adicionar</string>
+    <string name="Contacts_Add">Adicionar</string>    
     <string name="Contacts_Edit">Editar</string>
     <string name="Contacts_Remove">Remover</string>
     <string name="Contacts_Info">Informações</string>
-    <string name="Contact_1">Contacto 1</string>
-    <string name="Contact_2">Contacto 2</string>
-    <string name="Contact_3">Contacto 3</string>
+    <string name="Contact_1">Adicionar contacto 1</string>
+    <string name="Contact_2">Adicionar contacto 2</string>
+    <string name="Contact_3">Adicionar contacto 3</string>
     <string name="manual_add">Adicionar novo contacto</string>
     <string name="select_add">Selecionar contacto da lista</string>
+    
+    <!-- Activity Tests -->
+    <string name="tests_sensors">Testar Sensores</string>
+    <string name="tests_sms">Testar SMS</string>
+    <string name="tests_sms_button">Enviar SMS</string>
+    <string name="tests_result">Resultado:</string>
     
     <!-- Activity Adicionar novo contacto -->
     <string name="Contact_Title">Novo Contacto</string>
     <string name="Contact_Name">Nome</string>
     <string name="Contact_Number">Número</string>
     
+    <!-- Outros -->
+    <string name="cancel">Cancelar</string>
+    <string name="error_message1">Erro: Sem nenhum contacto definido</string>
+    <string name="error_message2">Erro: Mensagem não enviada</string>
+        
     <!-- Autores -->
     <string name="autores">Autores:</string>
     <string name="autor1">(1090626) Mário Teixeira</string>
     <string name="autor2">(1100640) Marta Graça</string>
-    <string name="autor3">(1110637) Sara Rego</string>
+    <string name="autor3">(1110637) Sara Rego</string>    
     
     <!-- Versão -->
     <string name="version">Versão:</string>
-    <string name="version_num">0.1</string>
+    <string name="version_num">0.5</string>
     
 </resources>

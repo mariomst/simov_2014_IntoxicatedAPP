@@ -27,5 +27,10 @@
      	android:layout_height="wrap_content"
      	android:layout_width="wrap_content"
      	android:text="@string/Contacts_Add"/> 
+     <Button 
+        android:id="@+id/cancelButton"
+        android:layout_height="wrap_content"
+     	android:layout_width="wrap_content"
+     	android:text="@string/cancel"/>
 
 </LinearLayout>

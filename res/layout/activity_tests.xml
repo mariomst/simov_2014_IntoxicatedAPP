@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -7,31 +7,67 @@
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"        
+        android:layout_height="wrap_content"  
+        android:textSize="25sp"      
         android:text="@string/testsDescription"/>
     
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"         
+        android:layout_marginTop="45dp"
+        android:textSize="20sp"      
+        android:text="@string/tests_sensors"/>
+    
     <ToggleButton
-        android:id="@+id/button_gyro"
+        android:id="@+id/button_testGyro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"        
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"        
         android:textOn="Gyroscope on"
     	android:textOff="Gyroscope off"
     	android:onClick="onToggleClicked_gyro"/>
     
     <ToggleButton 
-        android:id="@+id/button_accel"
+        android:id="@+id/button_testAccel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"        
-        android:layout_marginTop="65dp"
+        android:layout_height="wrap_content"                
         android:textOn="Accelerometer on"
     	android:textOff="Accelerometer off"
+    	android:layout_alignBaseline="@+id/button_testGyro"
+        android:layout_alignBottom="@+id/button_testGyro"
+        android:layout_toRightOf="@+id/button_testGyro"
     	android:onClick="onToggleClicked_accel"/>
+    
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"        
+        android:layout_marginTop="145dp"
+        android:textSize="20sp"      
+        android:text="@string/tests_sms"/>
+    
+    <Button 
+        android:id="@+id/button_testSMS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:text="@string/tests_sms_button"/>
+    
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"        
+        android:layout_marginTop="245dp"
+        android:textSize="20sp"      
+        android:text="@string/tests_result"/>
     
     <TextView 
         android:id="@+id/textView_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"   
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="280dp"/>
+    
+    
 
-</LinearLayout>
+</RelativeLayout>

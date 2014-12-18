@@ -16,7 +16,7 @@ public class EditContactActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_editcontact);
+		setContentView(R.layout.activity_editcontact);		
 		
 		/**
 		 * Obter informações do contacto através do seu ID
@@ -49,6 +49,28 @@ public class EditContactActivity extends Activity {
             	/** Atualizar BD **/
                 DBAdapter adapter = new DBAdapter(getApplicationContext());
                 adapter.updateContact(c.getID(), c.getName(), c.getPhoneNumber());
+                finish();
+            }
+        });
+		
+		/**
+		 * Intruções para o botão Remove
+		 */
+		Button buttonREMOVE = (Button) findViewById(R.id.removeButton);
+		buttonREMOVE.setOnClickListener(new OnClickListener() {
+            public void onClick(View arg0) {
+            	DBAdapter adapter = new DBAdapter(getApplicationContext());
+            	adapter.deleteContact(_id);
+                finish();
+            }
+        });
+		
+		/**
+		 * Intruções para o botão Cancel
+		 */
+		Button buttonCANCEL = (Button) findViewById(R.id.cancelButton);
+		buttonCANCEL.setOnClickListener(new OnClickListener() {
+            public void onClick(View arg0) {            	
                 finish();
             }
         });

@@ -59,6 +59,8 @@ public class DBAdapter {
 			scores.add(new Score(crsr.getInt(0), crsr.getDouble(1)));
 			crsr.moveToNext();
 		}
+		crsr.close();
+		dbHelper_scores.close();
 		return scores;
 	}
 
@@ -70,6 +72,8 @@ public class DBAdapter {
 		Cursor crsr = sqliteDB.rawQuery(s, null);
 		crsr.moveToFirst();
 		Score scr = new Score(crsr.getInt(0), crsr.getDouble(1));
+		crsr.close();
+		dbHelper_scores.close();
 		return scr;
 	}
 
@@ -81,6 +85,7 @@ public class DBAdapter {
 			values.put(GAME_ID, gameID);
 			values.put(SCORE, Score);
 			sql.insert(TABLE_SCORES, null, values);
+			dbHelper_scores.close();
 		} catch (SQLException sqlerror) {
 			Log.v("Insert into table Scores failed with error: ",
 					sqlerror.getMessage());
@@ -97,9 +102,11 @@ public class DBAdapter {
 			values.put(GAME_ID, gameID);
 			values.put(SCORE, Score);
 			sql.update(TABLE_SCORES, values, GAME_ID + "=" + gameID, null);
+			dbHelper_scores.close();
 		} catch (SQLException sqlerror) {
 			Log.v("Update value in table Scores failed with error: ",
 					sqlerror.getMessage());
+			dbHelper_scores.close();
 			return false;
 		}
 		return true;
@@ -110,9 +117,11 @@ public class DBAdapter {
 		try {
 			SQLiteDatabase sql = dbHelper_scores.getWritableDatabase();
 			sql.delete(TABLE_SCORES, GAME_ID + "=" + gameID, null);
+			dbHelper_scores.close();
 		} catch (SQLException sqlerror) {
 			Log.v("Delete value in table Scores failed with error: ",
 					sqlerror.getMessage());
+			dbHelper_scores.close();
 			return false;
 		}
 		return true;
@@ -129,6 +138,8 @@ public class DBAdapter {
 					.getString(2)));
 			crsr.moveToNext();
 		}
+		crsr.close();
+		dbHelper_contacts.close();
 		return contacts;
 	}
 
@@ -141,6 +152,8 @@ public class DBAdapter {
 		crsr.moveToFirst();
 		Contact cnt = new Contact(crsr.getInt(0), crsr.getString(1),
 				crsr.getString(2));
+		crsr.close();
+		dbHelper_contacts.close();
 		return cnt;
 	}
 
@@ -149,13 +162,15 @@ public class DBAdapter {
 		try {
 			SQLiteDatabase sql = dbHelper_contacts.getWritableDatabase();
 			ContentValues values = new ContentValues();
-			values.put(CONTACT_ID, contactID);
+			//values.put(CONTACT_ID, contactID);
 			values.put(NAME, name);
 			values.put(PHONE_NUMBER, phoneNumber);
 			sql.insert(TABLE_CONTACTS, null, values);
+			dbHelper_contacts.close();
 		} catch (SQLException sqlerror) {
 			Log.v("Insert into table Contacts failed with error: ",
 					sqlerror.getMessage());
+			dbHelper_contacts.close();
 			return false;
 		}
 		return true;
@@ -171,9 +186,11 @@ public class DBAdapter {
 			values.put(PHONE_NUMBER, phoneNumber);
 			sql.update(TABLE_CONTACTS, values, CONTACT_ID + "=" + contactID,
 					null);
+			dbHelper_contacts.close();
 		} catch (SQLException sqlerror) {
 			Log.v("Update value in table Contacts failed with error: ",
 					sqlerror.getMessage());
+			dbHelper_contacts.close();
 			return false;
 		}
 		return true;
@@ -184,9 +201,11 @@ public class DBAdapter {
 		try {
 			SQLiteDatabase sql = dbHelper_contacts.getWritableDatabase();
 			sql.delete(TABLE_CONTACTS, CONTACT_ID + "=" + contactID, null);
+			dbHelper_contacts.close();
 		} catch (SQLException sqlerror) {
 			Log.v("Delete value in table Contacts failed with error: ",
 					sqlerror.getMessage());
+			dbHelper_contacts.close();
 			return false;
 		}
 		return true;
@@ -203,6 +222,8 @@ public class DBAdapter {
 					.getString(2)));
 			crsr.moveToNext();
 		}
+		crsr.close();
+		dbHelper_advices.close();
 		return advices;
 	}
 
@@ -215,6 +236,8 @@ public class DBAdapter {
 		crsr.moveToFirst();
 		Advice adv = new Advice(crsr.getInt(0), crsr.getString(1),
 				crsr.getString(2));
+		crsr.close();
+		dbHelper_advices.close();
 		return adv;
 	}
 
@@ -223,13 +246,15 @@ public class DBAdapter {
 		try {
 			SQLiteDatabase sql = dbHelper_advices.getWritableDatabase();
 			ContentValues values = new ContentValues();
-			values.put(ADVICE_ID, adviceID);
+			//values.put(ADVICE_ID, adviceID);
 			values.put(CATEGORY, category);
 			values.put(ADVICE_TEXT, adviceText);
 			sql.insert(TABLE_ADVICES, null, values);
+			dbHelper_advices.close();
 		} catch (SQLException sqlerror) {
 			Log.v("Insert into table Advices failed with error: ",
 					sqlerror.getMessage());
+			dbHelper_advices.close();
 			return false;
 		}
 		return true;
@@ -244,9 +269,11 @@ public class DBAdapter {
 			values.put(CATEGORY, category);
 			values.put(ADVICE_TEXT, adviceText);
 			sql.update(TABLE_ADVICES, values, ADVICE_ID + "=" + adviceID, null);
+			dbHelper_advices.close();
 		} catch (SQLException sqlerror) {
 			Log.v("Update value in table Advices failed with error: ",
 					sqlerror.getMessage());
+			dbHelper_advices.close();
 			return false;
 		}
 		return true;
@@ -257,9 +284,11 @@ public class DBAdapter {
 		try {
 			SQLiteDatabase sql = dbHelper_advices.getWritableDatabase();
 			sql.delete(TABLE_ADVICES, ADVICE_ID + "=" + adviceID, null);
+			dbHelper_advices.close();
 		} catch (SQLException sqlerror) {
 			Log.v("Delete value in table Advices failed with error: ",
 					sqlerror.getMessage());
+			dbHelper_advices.close();
 			return false;
 		}
 		return true;
