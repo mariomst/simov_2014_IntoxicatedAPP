@@ -248,8 +248,8 @@ public class SettingsActivity extends Activity {
 		ArrayList<Contact> contacts = adapter.getContacts();
 		contactsSize = contacts.size();
 		
-		Toast.makeText(getApplicationContext(), "Contacts: " + contacts.size(),
-				Toast.LENGTH_SHORT).show();
+		/**Toast.makeText(getApplicationContext(), "Contacts: " + contacts.size(),
+				Toast.LENGTH_SHORT).show();**/
 						
 		if(contactsSize == 0){
 			String text1 = getString(R.string.Contact_1);

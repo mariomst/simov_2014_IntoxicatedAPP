@@ -13,16 +13,25 @@
         android:layout_marginTop="35dp"
         android:text="@string/title1"
         android:textSize="40sp" />
-
+    
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView1"
-        android:layout_marginTop="32dp"
-        android:layout_toRightOf="@+id/imageView1"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/textView1"
         android:text="@string/title2"
         android:textSize="30sp" />
+    
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/imgDescription"
+        android:src="@drawable/logo" />
 
     <Button
         android:id="@+id/button_games"
@@ -41,14 +50,6 @@
         android:layout_alignRight="@+id/textView1"
         android:text="@string/button_advices" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:contentDescription="@string/imgDescription"
-        android:src="@drawable/logo" />
+    
 
 </RelativeLayout>
