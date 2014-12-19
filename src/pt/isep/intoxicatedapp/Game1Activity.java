@@ -2,12 +2,19 @@
 
 package pt.isep.intoxicatedapp;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import org.openintents.sensorsimulator.hardware.Sensor;
 import org.openintents.sensorsimulator.hardware.SensorEvent;
 import org.openintents.sensorsimulator.hardware.SensorEventListener;
 import org.openintents.sensorsimulator.hardware.SensorManagerSimulator;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -22,16 +29,20 @@ public class Game1Activity extends Activity implements SensorEventListener {
 	private TextView tv;
 	private long lastUpdate = 0;
 	private SensorManagerSimulator sm = null;
+	private Timer timer = new Timer();
+	private static final long UPDATE_INTERVAL = 5000;
     //private ConnectionToSensorSimulator conn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_game1);
+		//setContentView(R.layout.activity_game1);
+		//setContentView(new Game1(this,100,100));
+		setContentView(new MyView(this));
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		// Obter o TextView do ficheiro layout
-		tv = (TextView) findViewById(R.id.tv_game1_output);
+		//tv = (TextView) findViewById(R.id.tv_game1_output);
 
 		// Obter o serviço dos sensores
 		//sm = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -44,6 +55,13 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		StrictMode.setThreadPolicy(policy);
 		sm = SensorManagerSimulator.getSystemService(this, SENSOR_SERVICE);
 		sm.connectSimulator();
+		
+		//Timer para atualizar a bola
+		timer.scheduleAtFixedRate(new TimerTask(){
+			public void run(){
+				
+			}
+		}, 0, UPDATE_INTERVAL);
 		
 		//sm.connectSimulator();
 		
@@ -59,6 +77,10 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		// TODO Auto-generated method stub
 		//sm.unregisterListener(this);
 		//sm.disconnectSimulator();
+		if(timer!=null){
+			timer.cancel();
+		}
+		
 		super.onDestroy();
 	}
 
@@ -144,12 +166,12 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		        	float x = event.values[0];
 					float y = event.values[1];
 					float z = event.values[2];
-					tv.setText("Orientation X: "
+					/*tv.setText("Orientation X: "
 							+ Float.toString(x) + "\n"
 							+ "Orientation Y: "
 							+ Float.toString(y) + "\n"
 							+ "Orientation Z: "
-							+ Float.toString(z));
+							+ Float.toString(z));*/
 				}
 	        	break;
 	        default:
@@ -237,5 +259,34 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		}
 
 	}*/
+	public class MyView extends View
+    {
+        public MyView(Context context) 
+        {
+             super(context);
+        }
+
+        @Override
+        protected void onDraw(Canvas canvas) 
+        {
+           super.onDraw(canvas);
+           int x = getWidth();
+           int y = getHeight();
+           int radius = 20;
+           Paint paint = new Paint();
+           paint.setAntiAlias(true);
+           paint.setStyle(Paint.Style.FILL_AND_STROKE);
+           paint.setColor(Color.RED);
+           canvas.drawPaint(paint);
+           //paint.setStyle(Paint.Style.STROKE);
+           paint.setColor(Color.YELLOW);
+           canvas.drawCircle(x / 2, y / 2, x-160, paint);
+           paint.setColor(Color.GREEN);
+           canvas.drawCircle(x / 2, y / 2, x-250, paint);
+           // Use Color.parseColor to define HTML colors
+           paint.setColor(Color.parseColor("#CD5C5C"));
+           canvas.drawCircle(x / 2, y / 2, radius, paint);
+       }
+    }
 }
 
