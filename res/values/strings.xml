@@ -60,6 +60,10 @@
     <string name="cancel">Cancel</string>
      <string name="error_message1">Error: No contacts found</string>
      <string name="error_message2">Error: Message not sent</string>
+     
+     <!-- Mensagem de texto -->
+    <string name="sms_txt1">Hello</string>
+    <string name="sms_txt2">Your friend is drunk and asks for your help. He is in the following coordinates:</string>
     
     <!-- Autores -->
     <string name="autores">Authors:</string>

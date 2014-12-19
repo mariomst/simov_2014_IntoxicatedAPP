@@ -60,6 +60,10 @@
     <string name="cancel">Cancelar</string>
     <string name="error_message1">Erro: Sem nenhum contacto definido</string>
     <string name="error_message2">Erro: Mensagem não enviada</string>
+    
+    <!-- Mensagem de texto -->
+    <string name="sms_txt1">Olá</string>
+    <string name="sms_txt2">O seu amigo está bêbado e pede a sua ajuda. Encontra-se nas seguintes coordenadas: </string>
         
     <!-- Autores -->
     <string name="autores">Autores:</string>
