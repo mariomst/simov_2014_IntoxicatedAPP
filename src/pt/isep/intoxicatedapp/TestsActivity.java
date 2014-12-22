@@ -23,7 +23,7 @@ public class TestsActivity extends Activity implements SensorEventListener {
 
 	private SensorManager sm = null;
 	private TextView tv_out;
-	private Button smsBTN;
+	private Button smsBTN, gpsBTN;
 	private long lastUpdate = 0;	
 
 	@Override
@@ -45,7 +45,16 @@ public class TestsActivity extends Activity implements SensorEventListener {
 			public void onClick(View v) {
 				sendSMSMessage_test();			
 			}
-		});				
+		});			
+		
+		/** Associar botão button_testGPS **/
+		gpsBTN = (Button) findViewById(R.id.button_testGPS);
+		
+		gpsBTN.setOnClickListener(new View.OnClickListener() {			
+			public void onClick(View v) {
+				getCurrentLocation_test();				
+			}
+		});
 	}
 
 	@Override
@@ -138,7 +147,29 @@ public class TestsActivity extends Activity implements SensorEventListener {
 	
 	/** Método para enviar SMS **/
 	protected void sendSMSMessage_test(){
+		Log.i(getString(R.string.app_name), "SMS test started.");
 		SendSMS sms = new SendSMS();
 		sms.sendSMS(getApplicationContext(), "41.1777702","-8.6084523");
+	}
+	
+	/** Método para obter coordenadas GPS **/
+	protected void getCurrentLocation_test(){
+		Log.i(getString(R.string.app_name), "GPS test started.");
+		
+		GPS gps = new GPS(this);
+		
+		if(gps.canGetLocation()){
+			double latitude = gps.getLatitude();
+			double longitude = gps.getLongitude();
+			
+			String strLat = String.valueOf(latitude);
+			String strLon = String.valueOf(longitude);
+			
+			//escrever no ecrã os valores
+			tv_out.setText("Latitude: " + strLat  + "\n" + "Longitude: " + strLon);		
+		} else {
+			String errMsg = getString(R.string.error_message3);
+			tv_out.setText(errMsg);		
+		}
 	}
 }

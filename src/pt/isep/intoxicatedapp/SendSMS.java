@@ -35,6 +35,8 @@ public class SendSMS {
 				Log.i(context.getString(R.string.app_name), "Sending SMS to " + contactName + " with the phone number " + phoneNum);
 				SmsManager smsManager = SmsManager.getDefault();
 				smsManager.sendTextMessage(phoneNum, null, message, null, null);
+				String infMsg = context.getString(R.string.sms_info1);
+				Toast.makeText(context, infMsg, Toast.LENGTH_SHORT).show();
 			} catch (Exception err) {
 				String errorMsg = context.getString(R.string.error_message2);
 				Log.i(context.getString(R.string.app_name), errorMsg);

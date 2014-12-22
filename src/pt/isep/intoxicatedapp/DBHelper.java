@@ -8,7 +8,6 @@ public class DBHelper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
 	private String createStatement = "";
 	private String tableName;
-	private Context context;
 
 	public DBHelper(Context context, String tableName, String fields) {
 		super(context, tableName, null, DATABASE_VERSION);
@@ -16,7 +15,6 @@ public class DBHelper extends SQLiteOpenHelper {
 		this.createStatement += tableName + " (";
 		this.createStatement += fields + ");";
 		this.tableName = tableName;
-		this.context = context;
 	}
 
 	@Override

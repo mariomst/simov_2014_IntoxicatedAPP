@@ -1,12 +1,12 @@
 package pt.isep.intoxicatedapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class AdvicesActivity extends Activity {
 
@@ -38,9 +38,7 @@ public class AdvicesActivity extends Activity {
 			}
 		}	
 	
-	/**
-	 * Acções para os botões apresentados na activity "AdicesActivity"
-	 */
+	/** Acções para os botões apresentados na activity "AdvicesActivity" **/
 	public void optionSelected(){
 		ImageButton advice1 = (ImageButton) findViewById(R.id.button_drinking);
     	ImageButton advice2 = (ImageButton) findViewById(R.id.button_hangover);
@@ -48,24 +46,27 @@ public class AdvicesActivity extends Activity {
     	
     	advice1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Toast.makeText(getApplicationContext(), "Not yet implemented... Sorry",
-            			Toast.LENGTH_SHORT).show();
+            	Intent i = new Intent(AdvicesActivity.this, ShowAdviceActivity.class);
+            	i.putExtra("category", "drinking");
+            	startActivity(i);
             	Log.i(getString(R.string.app_name),"Showing drinking advices.");
             }
         });
     	
     	advice2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { 
-            	Toast.makeText(getApplicationContext(), "Not yet implemented... Sorry",
-            			Toast.LENGTH_SHORT).show();
+            	Intent i = new Intent(AdvicesActivity.this, ShowAdviceActivity.class);
+            	i.putExtra("category", "hangover");
+            	startActivity(i);
             	Log.i(getString(R.string.app_name),"Showing hangover advices.");
             }
         });
     	
     	advice3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { 
-            	Toast.makeText(getApplicationContext(), "Not yet implemented... Sorry",
-            			Toast.LENGTH_SHORT).show();
+            	Intent i = new Intent(AdvicesActivity.this, ShowAdviceActivity.class);
+            	i.putExtra("category", "alchool");
+            	startActivity(i);
             	Log.i(getString(R.string.app_name),"Showing % of alcohol.");
             }
         });

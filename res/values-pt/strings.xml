@@ -33,6 +33,11 @@
     <string name="about">Sobre</string>
     <string name="tests">Testes</string>
     
+    <!-- Activity Mostrar Conselhos -->
+    <string name="advice_number">Conselho nº</string>
+    <string name="advice_prev">Anterior</string>
+    <string name="advice_next">Seguinte</string>
+    
     <!-- Activity Definições -->
     <string name="Contacts_Text">Contactos</string>
     <string name="Contacts_Add">Adicionar</string>    
@@ -49,6 +54,8 @@
     <string name="tests_sensors">Testar Sensores</string>
     <string name="tests_sms">Testar SMS</string>
     <string name="tests_sms_button">Enviar SMS</string>
+    <string name="tests_gps">Testar GPS</string>
+    <string name="tests_gps_button">Obter localização</string>
     <string name="tests_result">Resultado:</string>
     
     <!-- Activity Adicionar novo contacto -->
@@ -60,8 +67,11 @@
     <string name="cancel">Cancelar</string>
     <string name="error_message1">Erro: Sem nenhum contacto definido</string>
     <string name="error_message2">Erro: Mensagem não enviada</string>
+    <string name="error_message3">Erro: Falha em obter as coordenadas do GPS</string>
+    <string name="error_message4">Erro: Sem conselhos para mostrar da categoria</string>
     
     <!-- Mensagem de texto -->
+    <string name="sms_info1">Info: Mensagem enviada</string>
     <string name="sms_txt1">Olá</string>
     <string name="sms_txt2">O seu amigo está bêbado e pede a sua ajuda. Encontra-se nas seguintes coordenadas: </string>
         

@@ -226,6 +226,23 @@ public class DBAdapter {
 		dbHelper_advices.close();
 		return advices;
 	}
+	
+	/* Obter conselhos de uma categoria */
+	public ArrayList<Advice> getAdvicesbyCategory(String adviceCategory){
+		ArrayList<Advice> advices = new ArrayList<Advice>();
+		SQLiteDatabase sqliteDB = dbHelper_advices.getReadableDatabase();
+		String s = "SELECT * FROM " + TABLE_ADVICES + " WHERE " + CATEGORY + "=\"" + adviceCategory +"\"";
+		Cursor crsr = sqliteDB.rawQuery(s, null);
+		crsr.moveToFirst();
+		for (int i = 0; i < crsr.getCount(); i++) {
+			advices.add(new Advice(crsr.getInt(0), crsr.getString(1), crsr
+					.getString(2)));
+			crsr.moveToNext();
+		}
+		crsr.close();
+		dbHelper_advices.close();
+		return advices;
+	}
 
 	/* Obter conselho */
 	public Advice getAdvice(int adviceID) {
@@ -239,7 +256,7 @@ public class DBAdapter {
 		crsr.close();
 		dbHelper_advices.close();
 		return adv;
-	}
+	}		
 
 	/* Inserir conselho */
 	public boolean insertAdvice(int adviceID, String category, String adviceText) {

@@ -21,18 +21,18 @@ public class GPS extends Service implements LocationListener {
 	/** flag para o estado da rede **/
 	boolean NetworkEnabled = false;
 
-	/** Vari·veis **/
+	/** Vari√°veis **/
 	Location location;
 	double latitude;
 	double longitude;
 
-	/** Distancia minima para ocorrer atualizaÁ„o **/
+	/** Distancia minima para ocorrer atualiza√ß√£o **/
 	private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 metros
 
-	/** Tempo entre atualizaÁıes em ms **/
+	/** Tempo entre atualiza√ß√µes em ms **/
 	private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1; // 1 minuto
 
-	/** Criar inst‚ncia de LocationManager **/
+	/** Criar inst√¢ncia de LocationManager **/
 	private LocationManager lm;
 
 	public GPS(Context context) {
@@ -58,7 +58,7 @@ public class GPS extends Service implements LocationListener {
 			} else {
 				this.canGetLocaion = true;
 
-				// Obter localizaÁ„o atravÈs do Network Provider
+				// Obter localiza√ß√£o atrav√©s do Network Provider
 				if (NetworkEnabled) {
 					Log.i(c.getString(R.string.app_name),
 							"Info: Network enabled, going to use if to obtain location.");
@@ -75,7 +75,7 @@ public class GPS extends Service implements LocationListener {
 					}
 				}
 
-				// Obter lat/long usand os serviÁos GPS.
+				// Obter lat/long usand os servi√ßos GPS.
 				if (GPSEnabled) {
 					if (location == null) {
 						Log.i(c.getString(R.string.app_name),
@@ -95,21 +95,21 @@ public class GPS extends Service implements LocationListener {
 				}
 			}
 		} catch (Exception e) {
-			/*Log.i(getString(R.string.app_name),
-					getString(R.string.error_message3));*/
+			Log.i(getString(R.string.app_name),
+					getString(R.string.error_message3));
 		}
 
 		return location;
 	}
 
-	/** funÁ„o para parar o GPS listener **/
+	/** fun√ß√£o para parar o GPS listener **/
 	public void stopUsingGPS() {
 		if (lm != null) {
 			lm.removeUpdates(GPS.this);
 		}
 	}
 
-	/** funÁ„o para obter a latitude **/
+	/** fun√ß√£o para obter a latitude **/
 	public double getLatitude() {
 		if (location != null) {
 			latitude = location.getLatitude();
@@ -118,7 +118,7 @@ public class GPS extends Service implements LocationListener {
 		return latitude;
 	}
 
-	/** funÁ„o para obter a longitude **/
+	/** fun√ß√£o para obter a longitude **/
 	public double getLongitude() {
 		if (location != null) {
 			longitude = location.getLongitude();
@@ -127,7 +127,7 @@ public class GPS extends Service implements LocationListener {
 		return longitude;
 	}
 
-	/** funÁ„o para verificar se GPS/wifi esta ativo **/
+	/** fun√ß√£o para verificar se GPS/wifi esta ativo **/
 	public boolean canGetLocation() {
 		return this.canGetLocaion;
 	}

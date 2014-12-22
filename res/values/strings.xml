@@ -3,7 +3,7 @@
 
     <string name="app_name">IntoxicatedApp</string>
     <string name="hello_world">Hello world!</string>
-    
+
     <!-- Titulos -->
     <string name="title1">Intoxicated</string>
     <string name="title2">app</string>
@@ -12,13 +12,13 @@
     <string name="AboutTitle">About</string>
     <string name="SettingsTitle">Settings</string>
     <string name="TestsTitle">Tests</string>
-    
-    <!--  Botões -->
+
+    <!-- Botões -->
     <string name="button_games">Play</string>
-    <string name="button_advices">Advices</string>   
-    <string name="button_gyro">Gyroscope</string>  
+    <string name="button_advices">Advices</string>
+    <string name="button_gyro">Gyroscope</string>
     <string name="button_accel">Accelerometer</string>
-    
+
     <!-- Descrições -->
     <string name="imgDescription">Logo</string>
     <string name="g1Description">Test your balance</string>
@@ -27,12 +27,17 @@
     <string name="ad2Description">How to deal with hangover</string>
     <string name="ad3Description">% of Alcohol</string>
     <string name="testsDescription">Tests</string>
-    
+
     <!-- Opções Menus -->
     <string name="settings">Settings</string>
     <string name="about">About</string>
     <string name="tests">Tests</string>
     
+    <!-- Activity Mostrar Conselhos -->
+    <string name="advice_number">Advice nº</string>
+    <string name="advice_prev">Previous</string>
+    <string name="advice_next">Next</string>
+
     <!-- Activity Definições -->
     <string name="Contacts_Text">Contacts</string>
     <string name="Contacts_Add">Add</string>
@@ -44,35 +49,40 @@
     <string name="Contact_3">Add contact 3</string>
     <string name="manual_add">Add new contact</string>
     <string name="select_add">Select contact from contacts list</string>
-    
+
     <!-- Activity Tests -->
     <string name="tests_sensors">Test Sensors</string>
     <string name="tests_sms">Test SMS</string>
     <string name="tests_sms_button">Send SMS</string>
-    <string name="tests_result">Result:</string>
-    
+    <string name="tests_gps">Test GPS</string>
+    <string name="tests_gps_button">Get Location</string>
+    <string name="tests_result">Result:</string>    
+
     <!-- Activity Adicionar novo contacto -->
     <string name="Contact_Title">New Contact</string>
     <string name="Contact_Name">Name</string>
     <string name="Contact_Number">Number</string>
-    
+
     <!-- Outros -->
     <string name="cancel">Cancel</string>
-     <string name="error_message1">Error: No contacts found</string>
-     <string name="error_message2">Error: Message not sent</string>
-     
-     <!-- Mensagem de texto -->
+    <string name="error_message1">Error: No contacts found</string>
+    <string name="error_message2">Error: Message not sent</string>
+    <string name="error_message3">Error: Failed to obtain GPS coordinates</string>
+	<string name="error_message4">Error: No advices to show of the category</string>
+	
+    <!-- Mensagem de texto -->
+    <string name="sms_info1">Info: Message sent</string>
     <string name="sms_txt1">Hello</string>
     <string name="sms_txt2">Your friend is drunk and asks for your help. He is in the following coordinates:</string>
-    
+
     <!-- Autores -->
     <string name="autores">Authors:</string>
     <string name="autor1">(1090626) Mário Teixeira</string>
     <string name="autor2">(1100640) Marta Graça</string>
     <string name="autor3">(1110637) Sara Rego</string>
-    
+
     <!-- Versão -->
     <string name="version">Version:</string>
-    <string name="version_num">0.5</string>    
+    <string name="version_num">0.5</string>
 
 </resources>
