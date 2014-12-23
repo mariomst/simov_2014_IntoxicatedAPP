@@ -149,7 +149,7 @@ public class TestsActivity extends Activity implements SensorEventListener {
 	protected void sendSMSMessage_test(){
 		Log.i(getString(R.string.app_name), "SMS test started.");
 		SendSMS sms = new SendSMS();
-		sms.sendSMS(getApplicationContext(), "41.1777702","-8.6084523");
+		sms.sendSMS(getApplicationContext());
 	}
 	
 	/** Método para obter coordenadas GPS **/

@@ -71,7 +71,9 @@
 	<string name="error_message4">Error: No advices to show of the category</string>
 	
     <!-- Mensagem de texto -->
-    <string name="sms_info1">Info: Message sent</string>
+    <string name="sms_info1">Info: Message</string>
+    <string name="sms_info2">of</string>
+    <string name="sms_info3">sent</string>
     <string name="sms_txt1">Hello</string>
     <string name="sms_txt2">Your friend is drunk and asks for your help. He is in the following coordinates:</string>
 

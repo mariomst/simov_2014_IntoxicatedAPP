@@ -71,7 +71,9 @@
     <string name="error_message4">Erro: Sem conselhos para mostrar da categoria</string>
     
     <!-- Mensagem de texto -->
-    <string name="sms_info1">Info: Mensagem enviada</string>
+    <string name="sms_info1">Info: Mensagem</string>
+    <string name="sms_info2">de</string>
+    <string name="sms_info3">enviada</string>    
     <string name="sms_txt1">Olá</string>
     <string name="sms_txt2">O seu amigo está bêbado e pede a sua ajuda. Encontra-se nas seguintes coordenadas: </string>
         
