@@ -8,6 +8,8 @@
     <string name="title1">Intoxicated</string>
     <string name="title2">app</string>
     <string name="PlayTitle">Jogar</string>
+    <string name="Play1Title">Teste o seu equilíbrio</string>
+    <string name="ScoreTitle">Pontuações</string>
     <string name="AdvicesTitle">Conselhos</string>
     <string name="AboutTitle">Sobre</string>
     <string name="SettingsTitle">Definições</string>

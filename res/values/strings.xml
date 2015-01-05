@@ -8,6 +8,8 @@
     <string name="title1">Intoxicated</string>
     <string name="title2">app</string>
     <string name="PlayTitle">Play</string>
+    <string name="Play1Title">Test you balance</string>
+    <string name="ScoreTitle">Score</string>
     <string name="AdvicesTitle">Advices</string>
     <string name="AboutTitle">About</string>
     <string name="SettingsTitle">Settings</string>

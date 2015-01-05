@@ -1,7 +1,7 @@
-
-
 package pt.isep.intoxicatedapp;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -12,6 +12,7 @@ import org.openintents.sensorsimulator.hardware.SensorManagerSimulator;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -20,6 +21,7 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -29,8 +31,17 @@ public class Game1Activity extends Activity implements SensorEventListener {
 	private TextView tv;
 	private long lastUpdate = 0;
 	private SensorManagerSimulator sm = null;
+	//private Timer timer = new Timer();
+	private static final long UPDATE_INTERVAL = 20000;
+	float x=0, y=0 ,z=0;
+	private static List<Float> listaX = new ArrayList<Float>();
+	private static List<Float> listaY = new ArrayList<Float>();
+	
 	private Timer timer = new Timer();
-	private static final long UPDATE_INTERVAL = 5000;
+	float height, width;
+	//private ViewGroup mContainerView;
+
+	//MyView v=new MyView(this);
     //private ConnectionToSensorSimulator conn;
 
 	@Override
@@ -56,12 +67,43 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		sm = SensorManagerSimulator.getSystemService(this, SENSOR_SERVICE);
 		sm.connectSimulator();
 		
-		//Timer para atualizar a bola
-		timer.scheduleAtFixedRate(new TimerTask(){
+		//timer = new Timer();
+        //timer.schedule(showScore(), 3000);
+		
+		//MyView v=new MyView(this);
+        
+		//Timer para acabar jogo
+		timer.schedule(new TimerTask(){
 			public void run(){
 				
+				//Média das posições da bola
+				float tamanho = listaX.size();
+				float total=0;
+				float hipotenusa;
+				float tangente;
+				float angulo;
+				for(int i=0; i<tamanho; i++){
+					hipotenusa = (float) Math.hypot(listaY.get(i)-(height/2), listaX.get(i)-(width/2));
+					total=total+hipotenusa;
+					/*tangente=listaY.get(i)/listaX.get(i);
+					angulo=(float) Math.atan(tangente);
+					hipotenusa=(float) (listaY.get(i)/Math.sin(angulo));
+					total=total+hipotenusa;*/
+				}
+				// tan(angulo) = cateto__oposto / cateto_adjacente
+				// arctan(tan)=angulo <=> tan^(-1)(tan)=angulo
+				//sen(angulo)=cateto_oposto/hipotenusa <=> hipotenusa = cateto_oposto/sen(angulo)
+				//http://pt.wikipedia.org/wiki/Fun%C3%A7%C3%B5es_trigonom%C3%A9tricas_inversas
+				float media = total/tamanho;
+				Log.i("MEDIA", String.valueOf(media));
+				
+				// Criar nova activity com o menu de jogos.
+		    	Intent i = new Intent(Game1Activity.this, Game1Score.class);
+		    	i.putExtra("score",media);
+		    	startActivity(i);
+		    	Log.i(getString(R.string.app_name),"Game1Score created.");
 			}
-		}, 0, UPDATE_INTERVAL);
+		}, UPDATE_INTERVAL);
 		
 		//sm.connectSimulator();
 		
@@ -77,11 +119,12 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		// TODO Auto-generated method stub
 		//sm.unregisterListener(this);
 		//sm.disconnectSimulator();
-		if(timer!=null){
+		/*if(timer!=null){
 			timer.cancel();
-		}
+		}*/
 		
 		super.onDestroy();
+		//mv.release();
 	}
 
 	@Override
@@ -163,9 +206,9 @@ public class Game1Activity extends Activity implements SensorEventListener {
 				
 				if((curTime - lastUpdate) > 100){				
 					lastUpdate = curTime;
-		        	float x = event.values[0];
-					float y = event.values[1];
-					float z = event.values[2];
+		        	x = event.values[0];
+					y = event.values[1];
+					z = event.values[2];
 					/*tv.setText("Orientation X: "
 							+ Float.toString(x) + "\n"
 							+ "Orientation Y: "
@@ -259,34 +302,122 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		}
 
 	}*/
-	public class MyView extends View
+	
+	
+	public class MyView extends View implements Runnable
     {
+		private static final int INTERVAL = 10;
+		private boolean running=true;
+		private float yy=0;
+		private float xx=0;
+		boolean primeiraVez = true;
+		//private Timer timer;
+		
+		/*Canvas c=new Canvas();
+		int x = getWidth();
+    	int y = getHeight();*/
+		
         public MyView(Context context) 
         {
              super(context);
+             Thread t=new Thread(this);
+             t.setPriority(Thread.MIN_PRIORITY);
+             t.start();
+             //timer = new Timer();
+             //timer.schedule(showScore(), 3000);
         }
 
         @Override
+        public void run(){
+        	while(running){
+        		try{
+        			Thread.sleep(INTERVAL);
+        		}catch(InterruptedException e){
+        			Log.e("Jogo", "GameLoop Finalizado!");
+        		}
+        		update();
+        	}
+        }
+        
+        private void update(){
+        	//if(yy<getHeight()){
+        		yy=yy+(3*y);
+        		xx=xx+(3*x);
+
+        		listaX.add(xx);
+        		listaY.add(yy);
+        	//}else{
+        		//yy=0;
+        	//}
+        	//Dispara metodo draw
+        	postInvalidate();
+        }
+        
+        public void draw(Canvas canvas){
+        	super.draw(canvas);
+        	if(primeiraVez){
+         		yy=getHeight()/2;
+         		xx=getWidth()/2;
+         		
+         		height=yy;
+         		width=xx;
+         		primeiraVez=false;
+         	}
+        	Paint paint = new Paint();
+        	paint.setAntiAlias(true);
+        	paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        	paint.setColor(Color.RED);
+        	canvas.drawPaint(paint);
+        	//paint.setStyle(Paint.Style.STROKE);
+        	paint.setColor(Color.YELLOW);
+        	canvas.drawCircle((getWidth() / 2), (getHeight() / 2), (getWidth()-160), paint);
+        	paint.setColor(Color.GREEN);
+        	canvas.drawCircle((getWidth() / 2), (getHeight() / 2), (getWidth()-250), paint);
+        	// Use Color.parseColor to define HTML colors
+        	paint.setColor(Color.parseColor("#CD5C5C"));
+           	canvas.drawCircle(xx, yy, 20, paint);
+           	Log.i(getString(R.string.app_name), "x:"+xx+" y:"+yy);
+        }
+        
+        public void release(){
+        	running=false;
+        }
+        
+        
+        /*@Override
         protected void onDraw(Canvas canvas) 
         {
-           super.onDraw(canvas);
-           int x = getWidth();
-           int y = getHeight();
-           int radius = 20;
-           Paint paint = new Paint();
-           paint.setAntiAlias(true);
-           paint.setStyle(Paint.Style.FILL_AND_STROKE);
-           paint.setColor(Color.RED);
-           canvas.drawPaint(paint);
-           //paint.setStyle(Paint.Style.STROKE);
-           paint.setColor(Color.YELLOW);
-           canvas.drawCircle(x / 2, y / 2, x-160, paint);
-           paint.setColor(Color.GREEN);
-           canvas.drawCircle(x / 2, y / 2, x-250, paint);
-           // Use Color.parseColor to define HTML colors
-           paint.setColor(Color.parseColor("#CD5C5C"));
-           canvas.drawCircle(x / 2, y / 2, radius, paint);
-       }
+        	c=canvas;
+        	super.onDraw(canvas);
+        	timer.scheduleAtFixedRate(new TimerTask(){
+    			public void run(){
+    				int x = getWidth();
+    	        	int y = getHeight();
+    				Paint p = new Paint();
+    				p.setAntiAlias(true);
+    	        	p.setStyle(Paint.Style.FILL_AND_STROKE);
+    				p.setColor(Color.parseColor("#CD5C5C"));
+    				c.drawCircle(x / 2, y / 2, 20, p);
+    				x--;
+    				y--;
+    			}
+    		}, 0, UPDATE_INTERVAL);
+        	/*int x = getWidth();
+        	int y = getHeight();
+        	int radius = 20;
+        	Paint paint = new Paint();
+        	paint.setAntiAlias(true);
+        	paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        	paint.setColor(Color.RED);
+        	canvas.drawPaint(paint);
+        	//paint.setStyle(Paint.Style.STROKE);
+        	paint.setColor(Color.YELLOW);
+        	canvas.drawCircle(x / 2, y / 2, x-160, paint);
+        	paint.setColor(Color.GREEN);
+        	canvas.drawCircle(x / 2, y / 2, x-250, paint);
+        	// Use Color.parseColor to define HTML colors
+        	paint.setColor(Color.parseColor("#CD5C5C"));
+           	canvas.drawCircle(x / 2, y / 2, radius, paint);
+       }*/
     }
 }
-

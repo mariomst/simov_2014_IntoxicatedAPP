@@ -36,7 +36,12 @@
         </activity>
         <activity
             android:name=".Game1Activity" 
-            android:label="@string/PlayTitle"
+            android:label="@string/Play1Title"
+            android:screenOrientation="portrait">            
+        </activity>
+        <activity
+            android:name=".Game1Score" 
+            android:label="@string/ScoreTitle"
             android:screenOrientation="portrait">            
         </activity>
         <activity
