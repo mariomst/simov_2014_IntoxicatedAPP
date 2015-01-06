@@ -20,6 +20,9 @@
     <string name="button_advices">Conselhos</string>    
     <string name="button_gyro">Giroscópio</string> 
     <string name="button_accel">Acelerômetro</string>
+    <string name="button_game1sms">Pedir ajuda a amigo</string>
+    <string name="button_game1call">Telfonar para 112</string>
+    <string name="button_game1score">Voltar ao menu principal</string>
     
     <!-- Descrições -->
     <string name="imgDescription">Logo</string>
@@ -59,9 +62,6 @@
     <string name="tests_gps">Testar GPS</string>
     <string name="tests_gps_button">Obter localização</string>
     <string name="tests_result">Resultado:</string>
-    
-    <!-- Activity Game1Score -->
-    <string name="score">Resultado</string>
     
     <!-- Activity Adicionar novo contacto -->
     <string name="Contact_Title">Novo Contacto</string>

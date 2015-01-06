@@ -100,6 +100,9 @@ public class Game1Activity extends Activity implements SensorEventListener {
 				// Criar nova activity com o menu de jogos.
 		    	Intent i = new Intent(Game1Activity.this, Game1Score.class);
 		    	i.putExtra("score",media);
+		    	i.putExtra("circuloVerde",(width-250));
+		    	i.putExtra("circuloLaranja",(width-160));
+		    	Log.i(getString(R.string.app_name),"limite1:"+(width-250)+" limite2:"+(width-160));
 		    	startActivity(i);
 		    	Log.i(getString(R.string.app_name),"Game1Score created.");
 			}
@@ -198,7 +201,6 @@ public class Game1Activity extends Activity implements SensorEventListener {
 	public void onSensorChanged(SensorEvent event) {
 		synchronized (this) {
 			int sensor = event.type;
-			float[] values = event.values;
 			
 			switch (sensor) {
 	        case Sensor.TYPE_ACCELEROMETER:
@@ -359,8 +361,8 @@ public class Game1Activity extends Activity implements SensorEventListener {
          		yy=getHeight()/2;
          		xx=getWidth()/2;
          		
-         		height=yy;
-         		width=xx;
+         		height=getHeight();
+         		width=getWidth();
          		primeiraVez=false;
          	}
         	Paint paint = new Paint();
