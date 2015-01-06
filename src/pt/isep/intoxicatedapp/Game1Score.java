@@ -36,14 +36,14 @@ public class Game1Score extends Activity{
 		    float limite2 = extras.getFloat("circuloLaranja");
 		    TextView tv = (TextView) findViewById(R.id.tv_game1_score);
 		    if (value<=limite1){
-			    tv.setText(getString(R.string.g1score_msg1));	/** podes escrever as mensagens no strings.xml so não pode ter o ' adiciona a versao pt **/
+			    tv.setText("You re doing\n      great!");	/** podes escrever as mensagens no strings.xml so não pode ter o ' adiciona a versao pt **/
 			    game1sms.setVisibility(4);
 			    game1call.setVisibility(4);
 			    //tv.setTextAlignment(4);
 		    }else if (value<=limite2){
-			    tv.setText(getString(R.string.g1score_msg2)); 	/** podes escrever as mensagens no strings.xml so não pode ter o ' adiciona a versao pt **/
+			    tv.setText("No more happy\n   hour for you!\n     Be careful!");
 		    }else{
-		    	tv.setText(getString(R.string.g1score_msg3)); 	/** podes escrever as mensagens no strings.xml so não pode ter o ' adiciona a versao pt **/
+		    	tv.setText("   No way you're\ndoing anything in\n      that state!\n   Get some help!");
 		    }
 		}
 		optionSelected();
@@ -53,30 +53,22 @@ public class Game1Score extends Activity{
 		game1back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	Log.i(getString(R.string.app_name),"Back no main menu.");
-            	//Intent i = new Intent(Game1Score.this, MainActivity.class);
-            	//startActivity(i);
-            	//Log.i(getString(R.string.app_name),"MainActivity created.");
-            	/** não é necessário recriares a main activity porque ela ainda existe **/
+
             	finish();
             }
         });
 		
 		game1sms.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Log.i(getString(R.string.app_name),"Sending SMS.");            	
-            	Log.i(getString(R.string.app_name),"SMS sended.");
+            	Log.i(getString(R.string.app_name),"Sending SMS.");
             	
             	/** enviar as sms **/
             	SendSMS sms = new SendSMS();
         		sms.sendSMS(getApplicationContext());
-            	
+        		
+        		Log.i(getString(R.string.app_name),"SMS sended.");
             	
             	Log.i(getString(R.string.app_name),"Back no main menu.");
-            	//Intent i = new Intent(Game1Score.this, MainActivity.class);
-            	//startActivity(i);
-            	//Log.i(getString(R.string.app_name),"MainActivity created.");
-            	
-            	/** não é necessário recriares a main activity porque ela ainda existe **/
             	finish();
             }
         });
@@ -91,11 +83,8 @@ public class Game1Score extends Activity{
             	startActivity(callIntent);
             	
             	Log.i(getString(R.string.app_name),"Call done.");
+            	
             	Log.i(getString(R.string.app_name),"Back no main menu.");
-            	//Intent i = new Intent(Game1Score.this, MainActivity.class);
-            	//startActivity(i);
-            	//Log.i(getString(R.string.app_name),"MainActivity created.");
-            	/** não é necessário recriares a main activity porque ela ainda existe **/
             	finish();
             }
         });

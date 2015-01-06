@@ -39,14 +39,14 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		super.onCreate(savedInstanceState);
 		setContentView(new MyView(this));
 		
-		// Obter o servi�o dos sensores
+		// Obter o servico dos sensores
 		sm = (SensorManager) getSystemService(SENSOR_SERVICE);
         
 		//Timer para acabar jogo
 		timer.schedule(new TimerTask(){
 			public void run(){
 				
-				//M�dia das posi��es da bola
+				//Media das posicoes da bola
 				float tamanho = listaX.size();
 				float total=0;
 				float hipotenusa;
@@ -62,8 +62,8 @@ public class Game1Activity extends Activity implements SensorEventListener {
 				// Criar nova activity com o score do jogo.
 		    	Intent i = new Intent(Game1Activity.this, Game1Score.class);
 		    	i.putExtra("score",media);
-		    	i.putExtra("circuloVerde",(width-250));
-		    	i.putExtra("circuloLaranja",(width-160));
+		    	i.putExtra("circuloVerde",((width/2)*0.40));
+		    	i.putExtra("circuloLaranja",((width/2)*0.90));
 		    	startActivity(i);
 		    	Log.i(getString(R.string.app_name),"Game1Score created.");
 		    	finish();
@@ -74,6 +74,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
 	@Override
 	protected void onDestroy() {
 		sm.unregisterListener(this);
+		finish();
 		super.onDestroy();
 	}
 
@@ -107,7 +108,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		Sensor sensor = event.sensor;
 
 		if (sensor.TYPE_ACCELEROMETER == 1) {
-			x = event.values[0];
+			x = 0-(event.values[0]);
 			y = event.values[1];
 			z = event.values[2];
 			
@@ -193,15 +194,20 @@ public class Game1Activity extends Activity implements SensorEventListener {
         	Paint paint = new Paint();
         	paint.setAntiAlias(true);
         	paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        	
+        	//Fundo vermelho
         	paint.setColor(Color.RED);
         	canvas.drawPaint(paint);
         	
+        	//Circulo amarelo 160
         	paint.setColor(Color.YELLOW);
-        	canvas.drawCircle((getWidth() / 2), (getHeight() / 2), (getWidth()-160), paint);
+        	canvas.drawCircle((getWidth() / 2), (getHeight() / 2), (float) ((getWidth()/2)*0.90), paint);
         	
+        	//Circulo verde 250
         	paint.setColor(Color.GREEN);
-        	canvas.drawCircle((getWidth() / 2), (getHeight() / 2), (getWidth()-250), paint);
+        	canvas.drawCircle((getWidth() / 2), (getHeight() / 2), (float) ((getWidth()/2)*0.40), paint);
         	
+        	//Bola
         	paint.setColor(Color.parseColor("#CD5C5C"));
            	canvas.drawCircle(xx, yy, 20, paint);
            	

@@ -27,7 +27,7 @@
     <!-- Score do jogo 1 -->
     <string name="g1score_msg1">You re doing\n      great!</string>
     <string name="g1score_msg2">No more happy\n   hour for you!\n     Be careful!</string>
-    <string name="g1score_msg3">   No way you re\ndoing anything in\n      that state!\n   Get some help!</string>
+    <string name="g1score_msg3">   No way you are\ndoing anything in\n      that state!\n   Get some help!</string>
 
     <!-- Descrições -->
     <string name="imgDescription">Logo</string>
