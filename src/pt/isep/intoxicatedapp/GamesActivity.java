@@ -51,11 +51,7 @@ public class GamesActivity extends Activity {
     	game1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Abrir minijogo 1
-            	//Toast.makeText(getApplicationContext(), "Not yet implemented... Sorry",
-            			//Toast.LENGTH_SHORT).show();
             	Log.i(getString(R.string.app_name),"Starting minigame 1.");
-            	
-            	// Criar nova activity com o menu de jogos.
             	Intent i = new Intent(GamesActivity.this, Game1Activity.class);
             	startActivity(i);
             	Log.i(getString(R.string.app_name),"Game1Activity created.");
