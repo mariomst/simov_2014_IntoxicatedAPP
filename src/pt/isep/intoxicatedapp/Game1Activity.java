@@ -39,14 +39,14 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		super.onCreate(savedInstanceState);
 		setContentView(new MyView(this));
 		
-		// Obter o serviço dos sensores
+		// Obter o serviï¿½o dos sensores
 		sm = (SensorManager) getSystemService(SENSOR_SERVICE);
         
 		//Timer para acabar jogo
 		timer.schedule(new TimerTask(){
 			public void run(){
 				
-				//Média das posições da bola
+				//Mï¿½dia das posiï¿½ï¿½es da bola
 				float tamanho = listaX.size();
 				float total=0;
 				float hipotenusa;
@@ -66,6 +66,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		    	i.putExtra("circuloLaranja",(width-160));
 		    	startActivity(i);
 		    	Log.i(getString(R.string.app_name),"Game1Score created.");
+		    	finish();
 			}
 		}, UPDATE_INTERVAL);
 	}
