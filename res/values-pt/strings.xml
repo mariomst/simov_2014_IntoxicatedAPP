@@ -60,6 +60,9 @@
     <string name="tests_gps_button">Obter localização</string>
     <string name="tests_result">Resultado:</string>
     
+    <!-- Activity Game1Score -->
+    <string name="score">Resultado</string>
+    
     <!-- Activity Adicionar novo contacto -->
     <string name="Contact_Title">Novo Contacto</string>
     <string name="Contact_Name">Nome</string>

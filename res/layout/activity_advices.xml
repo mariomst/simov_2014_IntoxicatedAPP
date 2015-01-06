@@ -7,29 +7,25 @@
     <ImageButton
         android:id="@+id/button_drinking"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
-        android:layout_above="@+id/button_hangover"
-        android:layout_alignLeft="@+id/button_hangover"
-        android:layout_marginBottom="37dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/drinking"
         android:contentDescription="@string/ad1Description" />        
     
     <ImageButton
         android:id="@+id/button_hangover"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="170dp"
         android:background="@drawable/hangover"
-        android:contentDescription="@string/ad2Description"        
-        android:layout_centerInParent="true" />
+        android:contentDescription="@string/ad2Description"	/>
     
     <ImageButton 
         android:id="@+id/button_alchool"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
-        android:layout_below="@+id/button_hangover"
-        android:layout_alignLeft="@+id/button_hangover"
+        android:layout_height="90dp"
         android:background="@drawable/alchool"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="300dp"
         android:contentDescription="@string/ad3Description"/>
 
 </RelativeLayout>

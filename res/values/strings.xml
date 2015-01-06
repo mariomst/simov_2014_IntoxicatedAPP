@@ -8,7 +8,7 @@
     <string name="title1">Intoxicated</string>
     <string name="title2">app</string>
     <string name="PlayTitle">Play</string>
-    <string name="Play1Title">Test you balance</string>
+    <string name="Play1Title">Test your balance</string>
     <string name="ScoreTitle">Score</string>
     <string name="AdvicesTitle">Advices</string>
     <string name="AboutTitle">About</string>
@@ -58,7 +58,10 @@
     <string name="tests_sms_button">Send SMS</string>
     <string name="tests_gps">Test GPS</string>
     <string name="tests_gps_button">Get Location</string>
-    <string name="tests_result">Result:</string>    
+    <string name="tests_result">Result:</string>
+    
+    <!-- Activity Game1Score -->
+    <string name="score">Result</string>
 
     <!-- Activity Adicionar novo contacto -->
     <string name="Contact_Title">New Contact</string>

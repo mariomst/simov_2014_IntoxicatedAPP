@@ -50,7 +50,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		//setContentView(R.layout.activity_game1);
 		//setContentView(new Game1(this,100,100));
 		setContentView(new MyView(this));
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		//getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		// Obter o TextView do ficheiro layout
 		//tv = (TextView) findViewById(R.id.tv_game1_output);
@@ -377,6 +377,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
         	paint.setColor(Color.parseColor("#CD5C5C"));
            	canvas.drawCircle(xx, yy, 20, paint);
            	Log.i(getString(R.string.app_name), "x:"+xx+" y:"+yy);
+           	Log.i(getString(R.string.app_name), "height:"+(getWidth()-160)+" wight:"+(getWidth()-250));
         }
         
         public void release(){
