@@ -8,10 +8,10 @@
 
 ### Introdução ###
 
-* Código-fonte do projecto "IntoxicatedAPP" desenvolvido no âmbito das disciplinas ARQAM e SIMOV.
+* Código-fonte do projeto "IntoxicatedAPP" desenvolvido no âmbito das disciplinas ARQAM e SIMOV.
 * Versão atual: 0.5
 
-### Requistios ###
+### Requisitos ###
 
 * Android 4.0.4
 * Google Play Services
@@ -26,9 +26,9 @@
 
 ### Instalação (pelo ADT Eclipse) ###
 
-* Ter o projecto google-play-services_lib aberto.
-* Importar o projecto IntoxicatedApp para o eclipse. 
-* Correr o projecto como aplicação android.
+* Ter o projeto google-play-services_lib aberto.
+* Importar o projeto IntoxicatedApp para o eclipse. 
+* Correr o projeto como aplicação android.
 
 ### Configuração ###
 
