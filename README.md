@@ -36,12 +36,10 @@
 
 ### Imagens ###
 
-![Ecrã Principal](https://www.dropbox.com/s/l4ff8ii3as2k3d6/Screenshot_2015-01-07-16-10-59.png?dl=0)
-![Definir contactos](https://www.dropbox.com/s/pv99yht6r5r9ak6/Screenshot_2015-01-07-16-11-17.png?dl=0)
-![Mini-jogos](https://www.dropbox.com/s/6mxxid1clm9wylk/Screenshot_2015-01-07-16-11-38.png?dl=0)
-![Mini-jogo 1](https://www.dropbox.com/s/r5ucm0f04sn0vso/Screenshot_2015-01-07-16-11-47.png?dl=0)
-![Score Mini-jogo 1](https://www.dropbox.com/s/o8qowxvec4e01wv/Screenshot_2015-01-07-16-12-09.png?dl=0)
-![Conselhos](https://www.dropbox.com/s/yf6iiw67tnwxtnc/Screenshot_2015-01-07-16-13-16.png?dl=0)
-![Sobre](https://www.dropbox.com/s/gk12dh329jx4oji/Screenshot_2015-01-07-16-11-29.png?dl=0)
-
-
+![Ecrã Principal](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-10-59.png)
+![Definir contactos](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-11-17.png)
+![Mini-jogos](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-11-38.png)
+![Mini-jogo 1](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-11-47.png)
+![Score Mini-jogo 1](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-12-09.png)
+![Conselhos](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-13-16.png)
+![Sobre](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-11-29.png)
