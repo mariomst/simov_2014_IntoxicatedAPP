@@ -1,6 +1,5 @@
 package pt.isep.intoxicatedapp;
 
-import pt.isep.intoxicatedapp.Game1Activity.MyView;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 @SuppressLint("NewApi")
@@ -23,7 +21,6 @@ public class Game1Score extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_score);
-		//getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		game1back = (Button) findViewById(R.id.button_game1_score);
 		game1sms = (Button) findViewById(R.id.button_game1_sms);
@@ -36,10 +33,9 @@ public class Game1Score extends Activity{
 		    float limite2 = extras.getFloat("circuloLaranja");
 		    TextView tv = (TextView) findViewById(R.id.tv_game1_score);
 		    if (value<=limite1){
-			    tv.setText("You re doing\n      great!");	/** podes escrever as mensagens no strings.xml so não pode ter o ' adiciona a versao pt **/
+			    tv.setText("You re doing\n      great!");
 			    game1sms.setVisibility(4);
 			    game1call.setVisibility(4);
-			    //tv.setTextAlignment(4);
 		    }else if (value<=limite2){
 			    tv.setText("No more happy\n   hour for you!\n     Be careful!");
 		    }else{

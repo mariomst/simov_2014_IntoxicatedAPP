@@ -19,7 +19,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class Game1Activity extends Activity implements SensorEventListener {
@@ -62,8 +61,8 @@ public class Game1Activity extends Activity implements SensorEventListener {
 				// Criar nova activity com o score do jogo.
 		    	Intent i = new Intent(Game1Activity.this, Game1Score.class);
 		    	i.putExtra("score",media);
-		    	i.putExtra("circuloVerde",((width/2)*0.40));
-		    	i.putExtra("circuloLaranja",((width/2)*0.90));
+		    	i.putExtra("circuloVerde",(float)((width/2)*0.40));
+		    	i.putExtra("circuloLaranja",(float)((width/2)*0.90));
 		    	startActivity(i);
 		    	Log.i(getString(R.string.app_name),"Game1Score created.");
 		    	finish();
@@ -95,10 +94,10 @@ public class Game1Activity extends Activity implements SensorEventListener {
 		boolean on = ((ToggleButton) view).isChecked();
 
 		if (on) {
-			Log.i(getString(R.string.app_name), "Accelerometer test started.");
+			Log.i(getString(R.string.app_name), "Accelerometer started.");
 			sm.registerListener(this, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
 		} else {
-			Log.i(getString(R.string.app_name), "Accelerometer test stoped.");
+			Log.i(getString(R.string.app_name), "Accelerometer stoped.");
 			sm.unregisterListener(this);
 		}
 	}
@@ -169,18 +168,32 @@ public class Game1Activity extends Activity implements SensorEventListener {
         }
         
         private void update(){
-        	yy=yy+(3*y);
-        	xx=xx+(3*x);
-
+        	//Verificação para a bola não sair do ecrã
+        	if((xx=xx+(3*x)) < width){
+	        	xx=xx+(3*x);
+        	}else{
+        		xx = xx + (width - xx -20);
+        	}
+        	
+        	//Verificação para a bola não sair do ecrã
+        	if((yy+(3*y)) < height){
+        		yy=yy+(3*y);
+        	}else{
+        		yy = yy + (height - yy -20);
+        	}
+        	
+        	//Adicionar coordenadas da bola à lista
         	listaX.add(xx);
         	listaY.add(yy);
         	
+        	//Actualizar ecrã
         	postInvalidate();
         }
         
         public void draw(Canvas canvas){
         	super.draw(canvas);
         	
+        	//Se for a primeira vez que estiver a executar, coloca a bola no centro de ecrã
         	if(primeiraVez){
          		yy=getHeight()/2;
          		xx=getWidth()/2;
@@ -199,11 +212,11 @@ public class Game1Activity extends Activity implements SensorEventListener {
         	paint.setColor(Color.RED);
         	canvas.drawPaint(paint);
         	
-        	//Circulo amarelo 160
+        	//Circulo amarelo
         	paint.setColor(Color.YELLOW);
         	canvas.drawCircle((getWidth() / 2), (getHeight() / 2), (float) ((getWidth()/2)*0.90), paint);
         	
-        	//Circulo verde 250
+        	//Circulo verde
         	paint.setColor(Color.GREEN);
         	canvas.drawCircle((getWidth() / 2), (getHeight() / 2), (float) ((getWidth()/2)*0.40), paint);
         	
@@ -212,7 +225,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
            	canvas.drawCircle(xx, yy, 20, paint);
            	
            	Log.i(getString(R.string.app_name), "x:"+xx+" y:"+yy);
-           	Log.i(getString(R.string.app_name), "height:"+(getWidth()-160)+" wight:"+(getWidth()-250));
+           	Log.i(getString(R.string.app_name), "Ciculo amarelo:"+(float) ((getWidth()/2)*0.90)+" Circulo verde:"+(float) ((getWidth()/2)*0.40));
         }
         
         public void release(){
