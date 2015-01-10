@@ -169,17 +169,21 @@ public class Game1Activity extends Activity implements SensorEventListener {
         
         private void update(){
         	//Verificação para a bola não sair do ecrã
-        	if((xx=xx+(3*x)) < width){
+        	if((xx=xx+(3*x)) < width || (xx+(3*x)) > 0){
 	        	xx=xx+(3*x);
-        	}else{
+        	}else if((xx=xx+(3*x)) > width){
         		xx = xx + (width - xx -20);
+        	}else{
+        		xx = 20;
         	}
         	
         	//Verificação para a bola não sair do ecrã
-        	if((yy+(3*y)) < height){
+        	if((yy+(3*y)) < height || (yy+(3*y)) > 0){
         		yy=yy+(3*y);
-        	}else{
+        	}else if((yy+(3*y)) > height){
         		yy = yy + (height - yy -20);
+        	}else{
+        		yy = 20;
         	}
         	
         	//Adicionar coordenadas da bola à lista
