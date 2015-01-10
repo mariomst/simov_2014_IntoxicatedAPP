@@ -169,7 +169,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
         
         private void update(){
         	//Verificação para a bola não sair do ecrã
-        	if((xx=xx+(3*x)) < width || (xx+(3*x)) > 0){
+        	if((xx=xx+(3*x)) < width && (xx+(3*x)) > 0){
 	        	xx=xx+(3*x);
         	}else if((xx=xx+(3*x)) > width){
         		xx = xx + (width - xx -20);
@@ -178,7 +178,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
         	}
         	
         	//Verificação para a bola não sair do ecrã
-        	if((yy+(3*y)) < height || (yy+(3*y)) > 0){
+        	if((yy+(3*y)) < height && (yy+(3*y)) > 0){
         		yy=yy+(3*y);
         	}else if((yy+(3*y)) > height){
         		yy = yy + (height - yy -20);
