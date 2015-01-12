@@ -46,6 +46,16 @@
             android:screenOrientation="portrait">            
         </activity>
         <activity
+            android:name=".Game2Activity" 
+            android:label="@string/Play2Title"
+            android:screenOrientation="portrait">            
+        </activity>
+        <activity
+            android:name=".Game2Score" 
+            android:label="@string/ScoreTitle"
+            android:screenOrientation="portrait">            
+        </activity>
+        <activity
             android:name=".AdvicesActivity"
             android:label="@string/AdvicesTitle"
             android:screenOrientation="portrait">            

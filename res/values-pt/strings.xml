@@ -54,6 +54,8 @@
     <string name="Contact_3">Adicionar contacto 3</string>
     <string name="manual_add">Adicionar novo contacto</string>
     <string name="select_add">Selecionar contacto da lista</string>
+    <string name="updateDB">Atualizar conselhos</string>
+    <string name="update_DB">Realiza uma ligação à base de dados externa e atualiza a informação</string>
     
     <!-- Activity Tests -->
     <string name="tests_sensors">Testar Sensores</string>

@@ -61,9 +61,10 @@ public class GamesActivity extends Activity {
     	game2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Abrir minijogo 2     
-            	Toast.makeText(getApplicationContext(), "Not yet implemented... Sorry",
-            	Toast.LENGTH_SHORT).show();
-            	Log.i(getString(R.string.app_name),"Starting minigame 2.");
+            	Log.i(getString(R.string.app_name),"Starting minigame 1.");
+            	Intent i = new Intent(GamesActivity.this, Game2Activity.class);
+            	startActivity(i);
+            	Log.i(getString(R.string.app_name),"Game2Activity created.");
             }
         });
 	}
