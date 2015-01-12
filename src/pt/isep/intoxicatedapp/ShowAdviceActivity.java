@@ -63,11 +63,11 @@ public class ShowAdviceActivity extends Activity {
 		/** Adicionar instruções para os botões **/
 		advicePrev.setOnClickListener(new View.OnClickListener() {			
 			@Override
-			public void onClick(View v) {				
+			public void onClick(View v) {
+				currentAdvice--;				
 				if(currentAdvice == 1){
 					showFirstAdvice();
-				} else {
-					currentAdvice--;
+				} else {					
 					showAdvice();
 				}
 			}
@@ -76,10 +76,10 @@ public class ShowAdviceActivity extends Activity {
 		adviceNext.setOnClickListener(new View.OnClickListener() {			
 			@Override
 			public void onClick(View v) {
+				currentAdvice++;
 				if(currentAdvice == advices.size()){
 					showLastAdvice();
-				} else {
-					currentAdvice++;
+				} else {					
 					showAdvice();
 				}
 			}
@@ -116,7 +116,7 @@ public class ShowAdviceActivity extends Activity {
 		}
 		
 		/** Mostrar conselho **/
-		String number = adviceNumber.getText().toString() + currentAdvice;
+		String number = getString(R.string.advice_number) + currentAdvice;
 		String advice = advices.get((currentAdvice-1)).getText();
 		String counter = currentAdvice + "/" + advicesSize;	
 		adviceNumber.setText(number);
@@ -131,7 +131,7 @@ public class ShowAdviceActivity extends Activity {
 		adviceNext.setVisibility(View.VISIBLE);		
 		
 		/** Mostrar conselho **/
-		String number = adviceNumber.getText().toString() + currentAdvice;
+		String number = getString(R.string.advice_number) + currentAdvice;
 		String advice = advices.get((currentAdvice-1)).getText();
 		String counter = currentAdvice + "/" + advicesSize;	
 		adviceNumber.setText(number);
@@ -146,11 +146,11 @@ public class ShowAdviceActivity extends Activity {
 		adviceNext.setVisibility(View.INVISIBLE);		
 		
 		/** Mostrar conselho **/
-		String number = adviceNumber.getText().toString() + currentAdvice;
+		String number = getString(R.string.advice_number) + currentAdvice;
 		String advice = advices.get((currentAdvice-1)).getText();
 		String counter = currentAdvice + "/" + advicesSize;	
 		adviceNumber.setText(number);
 		adviceOutput.setText(advice);
-		adviceCounter.setText(counter);		
+		adviceCounter.setText(counter);	
 	}
 }

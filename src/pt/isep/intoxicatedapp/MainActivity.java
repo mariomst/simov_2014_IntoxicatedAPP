@@ -28,9 +28,18 @@ public class MainActivity extends Activity {
         
         //Forçar overflow menu (em androids com o botão menu fisico)
         forceOverflowMenu();
-    }       
-    
+    }      
+     
     @Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+	}
+    
+
+
+
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
     	MenuInflater inflater = getMenuInflater();
     	inflater.inflate(R.menu.option_menu, menu);

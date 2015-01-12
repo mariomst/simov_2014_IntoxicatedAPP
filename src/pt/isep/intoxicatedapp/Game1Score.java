@@ -33,13 +33,13 @@ public class Game1Score extends Activity{
 		    float limite2 = extras.getFloat("circuloLaranja");
 		    TextView tv = (TextView) findViewById(R.id.tv_game1_score);
 		    if (value<=limite1){
-			    tv.setText(value+" "+limite1+" "+"You re doing\n      great!");
+			    tv.setText("You're doing\n      great!");
 			    game1sms.setVisibility(4);
 			    game1call.setVisibility(4);
 		    }else if (value<=limite2){
-			    tv.setText(value+" "+limite2+" "+"No more happy\n   hour for you!\n     Be careful!");
+			    tv.setText("No more happy\n   hour for you!\n     Be careful!");
 		    }else{
-		    	tv.setText(value+" "+limite2+" "+"   No way you're\ndoing anything in\n      that state!\n   Get some help!");
+		    	tv.setText("   No way you're\ndoing anything in\n      that state!\n   Get some help!");
 		    }
 		}
 		optionSelected();

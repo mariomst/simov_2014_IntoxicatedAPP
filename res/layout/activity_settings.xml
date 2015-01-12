@@ -1,112 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:id="@+id/layout_settings">
     
-    <TextView
-        android:id="@+id/contacts_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="@string/Contacts_Text"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content" >
+    	
+    	<TextView
+        	android:id="@+id/contacts_title"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textSize="30sp"
+        	android:text="@string/Contacts_Text"/>
     
-    <!-- Contacto 1 -->    
+    	<!-- Contacto 1 -->    
     
-    <ImageButton 
-        android:id="@+id/add_contact_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/contacts_title"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/add"
-        android:contentDescription="@string/Contacts_Add" />    
+    	<ImageButton 
+        	android:id="@+id/add_contact_1"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_below="@+id/contacts_title"
+        	android:layout_marginLeft="15dp"
+        	android:background="@drawable/add"
+        	android:contentDescription="@string/Contacts_Add" />    
     
-    <ImageButton 
-        android:id="@+id/info_contact_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/contacts_title"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/info"
-        android:contentDescription="@string/Contacts_Info" />    
-    
-    <TextView
-        android:id="@+id/contact_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/info_contact_1"
-        android:layout_alignBottom="@+id/info_contact_1"
-        android:layout_toRightOf="@+id/info_contact_1"
-        android:layout_marginLeft="10dp"
-        android:textSize="20sp"
-        android:text="@string/Contact_1" />
-    
-    <!-- Contacto 2 -->  
-        
-    <ImageButton 
-        android:id="@+id/add_contact_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/info_contact_1"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/add"
-        android:contentDescription="@string/Contacts_Add" />    
-    
-    <ImageButton 
-        android:id="@+id/info_contact_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/info_contact_1"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/info"
-        android:contentDescription="@string/Contacts_Info" />    
-    
-    <TextView
-        android:id="@+id/contact_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/info_contact_2"
-        android:layout_alignBottom="@+id/info_contact_2"
-        android:layout_toRightOf="@+id/info_contact_2"
-        android:layout_marginLeft="10dp"
-        android:textSize="20sp"
-        android:text="@string/Contact_2" />
-    
-    <!-- Contacto 3 -->  
-    
-    <ImageButton 
-        android:id="@+id/add_contact_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/info_contact_2"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/add"
-        android:contentDescription="@string/Contacts_Add" />
+		    <ImageButton 
+		        android:id="@+id/info_contact_1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/contacts_title"
+		        android:layout_marginLeft="15dp"
+		        android:background="@drawable/info"
+		        android:contentDescription="@string/Contacts_Info" />    
+		    
+		    <TextView
+		        android:id="@+id/contact_1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignBaseline="@+id/info_contact_1"
+		        android:layout_alignBottom="@+id/info_contact_1"
+		        android:layout_toRightOf="@+id/info_contact_1"
+		        android:layout_marginLeft="10dp"
+		        android:textSize="20sp"
+		        android:text="@string/Contact_1" />
+		    
+		    <!-- Contacto 2 -->  
+		        
+		    <ImageButton 
+		        android:id="@+id/add_contact_2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/info_contact_1"
+		        android:layout_marginLeft="15dp"
+		        android:background="@drawable/add"
+		        android:contentDescription="@string/Contacts_Add" />    
+		    
+		    <ImageButton 
+		        android:id="@+id/info_contact_2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/info_contact_1"
+		        android:layout_marginLeft="15dp"
+		        android:background="@drawable/info"
+		        android:contentDescription="@string/Contacts_Info" />    
+		    
+		    <TextView
+		        android:id="@+id/contact_2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignBaseline="@+id/info_contact_2"
+		        android:layout_alignBottom="@+id/info_contact_2"
+		        android:layout_toRightOf="@+id/info_contact_2"
+		        android:layout_marginLeft="10dp"
+		        android:textSize="20sp"
+		        android:text="@string/Contact_2" />
+		    
+		    <!-- Contacto 3 -->  
+		    
+		    <ImageButton 
+		        android:id="@+id/add_contact_3"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/info_contact_2"
+		        android:layout_marginLeft="15dp"
+		        android:background="@drawable/add"
+		        android:contentDescription="@string/Contacts_Add" />
+		
+		    <ImageButton 
+		        android:id="@+id/info_contact_3"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		       	android:layout_below="@+id/info_contact_2"
+		        android:layout_marginLeft="15dp"
+		        android:background="@drawable/info"
+		        android:contentDescription="@string/Contacts_Info" />    
+		    
+		    <TextView
+		        android:id="@+id/contact_3"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignBaseline="@+id/info_contact_3"
+		        android:layout_alignBottom="@+id/info_contact_3"
+		        android:layout_toRightOf="@+id/info_contact_3"
+		        android:layout_marginLeft="10dp"
+		        android:textSize="20sp"
+		        android:text="@string/Contact_3" />
 
-    <ImageButton 
-        android:id="@+id/info_contact_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-       	android:layout_below="@+id/info_contact_2"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/info"
-        android:contentDescription="@string/Contacts_Info" />    
-    
-    <TextView
-        android:id="@+id/contact_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/info_contact_3"
-        android:layout_alignBottom="@+id/info_contact_3"
-        android:layout_toRightOf="@+id/info_contact_3"
-        android:layout_marginLeft="10dp"
-        android:textSize="20sp"
-        android:text="@string/Contact_3" />
+     	<!-- Atualizar Tabela de conselhos -->      
+     	
+     		<TextView 
+     		    android:id="@+id/url_tv"
+     		    android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="15sp"
+     		    android:layout_below="@+id/info_contact_3"
+     		    android:text="@string/url_text"/>   
+     		    
+     		<EditText
+     		    android:id="@+id/url_add"
+     		    android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="15sp"
+		        android:layout_below="@+id/url_tv"
+		        android:inputType="text"/>
+     		
+     		<Button 
+     		    android:id="@+id/btn_getAdvices"
+     		    android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/url_add"
+		        android:layout_marginTop="15sp"
+		        android:text="@string/url_get"/>
 
-           
-
-    
-
-</RelativeLayout>
+	</RelativeLayout>
+</ScrollView>

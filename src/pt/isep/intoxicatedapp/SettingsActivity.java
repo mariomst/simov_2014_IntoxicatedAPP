@@ -1,12 +1,12 @@
 package pt.isep.intoxicatedapp;
 
 import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -14,6 +14,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,8 @@ public class SettingsActivity extends Activity {
 	private int contactsSize;
 	private TextView c1, c2, c3;
 	private ImageButton a1, a2, a3, i1, i2, i3;
+	private Button adv;
+	private EditText url;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +35,17 @@ public class SettingsActivity extends Activity {
 		setContentView(R.layout.activity_settings);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+	    StrictMode.setThreadPolicy(policy);
+		
 		/** Criar base de dados de contactos caso ainda não foi criada **/
 		DBAdapter adapter = new DBAdapter(getApplicationContext());
 
 		/** Buscar contactos e inseri-los num array **/
 		ArrayList<Contact> contacts = adapter.getContacts();
+		
+		/** Associar o EditText **/
+		url = (EditText) findViewById(R.id.url_add);
 		
 		/** Associar as TextViews **/
 		c1 = (TextView) findViewById(R.id.contact_1);
@@ -49,6 +59,7 @@ public class SettingsActivity extends Activity {
 		i1 = (ImageButton) findViewById(R.id.info_contact_1);
 		i2 = (ImageButton) findViewById(R.id.info_contact_2);
 		i3 = (ImageButton) findViewById(R.id.info_contact_3);
+		adv = (Button) findViewById(R.id.btn_getAdvices);
 		
 		/** Obter dimensão do array **/
 		contactsSize = contacts.size();
@@ -71,6 +82,13 @@ public class SettingsActivity extends Activity {
 		refreshContacts();
 		addContact();
 		infoContact();
+		
+		adv.setOnClickListener(new View.OnClickListener() {			
+			public void onClick(View v) {
+				callGetAdvicesHTTP();				
+			}
+		});
+		
 	}
 
 	@Override
@@ -289,5 +307,19 @@ public class SettingsActivity extends Activity {
 			a1.setVisibility(View.INVISIBLE); a2.setVisibility(View.INVISIBLE); a3.setVisibility(View.INVISIBLE);
 			i1.setVisibility(View.VISIBLE); i2.setVisibility(View.VISIBLE); i3.setVisibility(View.VISIBLE);
 		}
+	}
+
+	/** Acção para o botão de adicionar conselhos **/
+	private void callGetAdvicesHTTP(){
+		Log.i("IntoxicatedApp","Algo");
+		Log.i("IntoxicatedApp",url.getText().toString());
+		String getURL = url.getText().toString();
+		if(!getURL.matches("")){
+			GetAdvicesHTTP advicesHTTP = new GetAdvicesHTTP(this, getURL);		
+		} else {
+			Toast.makeText(this,
+					"Error: URL is empty", Toast.LENGTH_SHORT)
+					.show();
+		}				
 	}
 }

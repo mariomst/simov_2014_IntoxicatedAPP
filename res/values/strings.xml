@@ -60,8 +60,6 @@
     <string name="Contact_3">Add contact 3</string>
     <string name="manual_add">Add new contact</string>
     <string name="select_add">Select contact from contacts list</string>
-    <string name="updateDB">Update Advices</string>
-    <string name="update_DB">Connects to external database and updates information</string>
 
     <!-- Activity Tests -->
     <string name="tests_sensors">Test Sensors</string>
@@ -70,6 +68,8 @@
     <string name="tests_gps">Test GPS</string>
     <string name="tests_gps_button">Get Location</string>
     <string name="tests_result">Result:</string>
+    <string name="url_text">Set URL to get advices</string>
+    <string name="url_get">Get Advices</string>
 
     <!-- Activity Adicionar novo contacto -->
     <string name="Contact_Title">New Contact</string>
@@ -98,6 +98,6 @@
 
     <!-- Versão -->
     <string name="version">Version:</string>
-    <string name="version_num">0.5</string>
+    <string name="version_num">1.0</string>
 
 </resources>
