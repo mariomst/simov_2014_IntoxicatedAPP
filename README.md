@@ -9,7 +9,7 @@
 ### Introdução ###
 
 * Código-fonte do projeto "IntoxicatedAPP" desenvolvido no âmbito das disciplinas ARQAM e SIMOV.
-* Versão atual: 0.8
+* Versão atual: 1.0
 
 ### Requisitos ###
 
@@ -40,13 +40,3 @@
 
 * A aplicação permite definir até três contactos, para tal basta aceder as definições e escolher contactos da lista, ou inseri-los manualmente.
 * É tambem possível inserir um endereço para adquirir os conselhos de uma base de dados externa (devido a impossibilidade de alojamento do servidor num endereço fixo).
-
-### Imagens ###
-
-![Ecrã Principal](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-10-59.png)
-![Definir contactos](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-11-17.png)
-![Mini-jogos](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-11-38.png)
-![Mini-jogo 1](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-11-47.png)
-![Score Mini-jogo 1](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-12-09.png)
-![Conselhos](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-13-16.png)
-![Sobre](https://bitbucket.org/mario_1090626/intoxicatedapp/downloads/Screenshot_2015-01-07-16-11-29.png)

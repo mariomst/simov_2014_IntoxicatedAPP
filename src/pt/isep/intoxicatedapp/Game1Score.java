@@ -58,7 +58,7 @@ public class Game1Score extends Activity{
             public void onClick(View v) {
             	Log.i(getString(R.string.app_name),"Sending SMS.");
             	
-            	/** enviar as sms **/
+            	/** Enviar as sms **/
             	SendSMS sms = new SendSMS();
         		sms.sendSMS(getApplicationContext());
         		
@@ -73,7 +73,7 @@ public class Game1Score extends Activity{
             public void onClick(View v) {
             	Log.i(getString(R.string.app_name),"Making call.");
             	
-            	/** para fazer uma chamada (http://goo.gl/EnR17s) **/            	
+            	/** Fazer chamada para 112 **/            	
             	Intent callIntent = new Intent(Intent.ACTION_CALL);
             	callIntent.setData(Uri.parse("tel:112"));
             	startActivity(callIntent);

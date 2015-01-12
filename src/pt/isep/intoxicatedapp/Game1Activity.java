@@ -168,7 +168,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
         }
         
         private void update(){
-        	//VerificaÁ„o para a bola n„o sair do ecr„
+        	//Verifica–∑–≥o para a bola n–≥o sair do ecr–≥
         	if((xx=xx+(3*x)) < width && (xx+(3*x)) > 0){
 	        	xx=xx+(3*x);
         	}else if((xx=xx+(3*x)) > width){
@@ -177,7 +177,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
         		xx = 20;
         	}
         	
-        	//VerificaÁ„o para a bola n„o sair do ecr„
+        	//Verifica–∑–≥o para a bola n–≥o sair do ecr–≥
         	if((yy+(3*y)) < height && (yy+(3*y)) > 0){
         		yy=yy+(3*y);
         	}else if((yy+(3*y)) > height){
@@ -186,18 +186,18 @@ public class Game1Activity extends Activity implements SensorEventListener {
         		yy = 20;
         	}
         	
-        	//Adicionar coordenadas da bola ‡ lista
+        	//Adicionar coordenadas da bola –∞ lista
         	listaX.add(xx);
         	listaY.add(yy);
         	
-        	//Actualizar ecr„
+        	//Actualizar ecr–≥
         	postInvalidate();
         }
         
         public void draw(Canvas canvas){
         	super.draw(canvas);
         	
-        	//Se for a primeira vez que estiver a executar, coloca a bola no centro de ecr„
+        	//Se for a primeira vez que estiver a executar, coloca a bola no centro de ecr–≥
         	if(primeiraVez){
          		yy=getHeight()/2;
          		xx=getWidth()/2;
@@ -225,7 +225,7 @@ public class Game1Activity extends Activity implements SensorEventListener {
         	canvas.drawCircle((getWidth() / 2), (getHeight() / 2), (float) ((getWidth()/2)*0.40), paint);
         	
         	//Bola
-        	paint.setColor(Color.parseColor("#CD5C5C"));
+        	paint.setColor(Color.BLACK);
            	canvas.drawCircle(xx, yy, 20, paint);
            	
            	Log.i(getString(R.string.app_name), "x:"+xx+" y:"+yy);

@@ -13,30 +13,29 @@ import android.widget.TextView;
 @SuppressLint("NewApi")
 public class Game2Score extends Activity{
 	
-	Button game2back;
-	Button game2sms;
-	Button game2call;
+	Button game1back;
+	Button game1sms;
+	Button game1call;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_score);
 		
-		game2back = (Button) findViewById(R.id.button_game1_score);
-		game2sms = (Button) findViewById(R.id.button_game1_sms);
-		game2call = (Button) findViewById(R.id.button_game1_call);
+		game1back = (Button) findViewById(R.id.button_game1_score);
+		game1sms = (Button) findViewById(R.id.button_game1_sms);
+		game1call = (Button) findViewById(R.id.button_game1_call);
 		
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-		    //float falhas = extras.getFloat("falhas");
-		    float certas = extras.getFloat("certas");
-		    float certas1 = extras.getFloat("certas1");
+		    float value = extras.getFloat("score");
+		    
 		    TextView tv = (TextView) findViewById(R.id.tv_game1_score);
-		    if (certas >= 29 || certas1 >= 19){
-			    tv.setText("You re doing\n      great!");
-			    game2sms.setVisibility(4);
-			    game2call.setVisibility(4);
-		    }else if (certas >= 10 || certas1 >= 9){
+		    if (value>0.75){
+			    tv.setText("You're doing\n      great!");
+			    game1sms.setVisibility(4);
+			    game1call.setVisibility(4);
+		    }else if (value>=0.5){
 			    tv.setText("No more happy\n   hour for you!\n     Be careful!");
 		    }else{
 		    	tv.setText("   No way you're\ndoing anything in\n      that state!\n   Get some help!");
@@ -46,7 +45,7 @@ public class Game2Score extends Activity{
 	}
 	
 	public void optionSelected(){
-		game2back.setOnClickListener(new View.OnClickListener() {
+		game1back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	Log.i(getString(R.string.app_name),"Back no main menu.");
 
@@ -54,11 +53,11 @@ public class Game2Score extends Activity{
             }
         });
 		
-		game2sms.setOnClickListener(new View.OnClickListener() {
+		game1sms.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	Log.i(getString(R.string.app_name),"Sending SMS.");
             	
-            	/** enviar as sms **/
+            	/** Enviar as sms **/
             	SendSMS sms = new SendSMS();
         		sms.sendSMS(getApplicationContext());
         		
@@ -69,11 +68,11 @@ public class Game2Score extends Activity{
             }
         });
 		
-		game2call.setOnClickListener(new View.OnClickListener() {
+		game1call.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	Log.i(getString(R.string.app_name),"Making call.");
             	
-            	/** para fazer uma chamada (http://goo.gl/EnR17s) **/            	
+            	/**Fazer chamada para 112 **/            	
             	Intent callIntent = new Intent(Intent.ACTION_CALL);
             	callIntent.setData(Uri.parse("tel:112"));
             	startActivity(callIntent);
