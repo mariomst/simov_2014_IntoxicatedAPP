@@ -28,14 +28,15 @@ public class Game2Score extends Activity{
 		
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-		    float falhas = extras.getFloat("score");
-		    System.out.println("falhas "+ falhas);
+		    //float falhas = extras.getFloat("falhas");
+		    float certas = extras.getFloat("certas");
+		    float certas1 = extras.getFloat("certas1");
 		    TextView tv = (TextView) findViewById(R.id.tv_game1_score);
-		    if (falhas<=40){
+		    if (certas >= 29 || certas1 >= 19){
 			    tv.setText("You re doing\n      great!");
 			    game2sms.setVisibility(4);
 			    game2call.setVisibility(4);
-		    }else if (falhas<=70){
+		    }else if (certas >= 10 || certas1 >= 9){
 			    tv.setText("No more happy\n   hour for you!\n     Be careful!");
 		    }else{
 		    	tv.setText("   No way you're\ndoing anything in\n      that state!\n   Get some help!");
