@@ -1,10 +1,4 @@
-# README #
-
-### Autores ###
-
-* Mário Teixeira [1090626@isep.ipp.pt](mailto:1090626@isep.ipp.pt)
-* Marta Graça [1100640@isep.ipp.pt](mailto:1100640@isep.ipp.pt)
-* Sara Rego [1110637@isep.ipp.pt](mailto:1110637@isep.ipp.pt)
+# SIMOV 2014/2015 - IntoxicatedAPP #
 
 ### Introdução ###
 
@@ -40,3 +34,9 @@
 
 * A aplicação permite definir até três contactos, para tal basta aceder as definições e escolher contactos da lista, ou inseri-los manualmente.
 * É tambem possível inserir um endereço para adquirir os conselhos de uma base de dados externa (devido a impossibilidade de alojamento do servidor num endereço fixo).
+
+### Autores ###
+
+* Mário Teixeira [1090626@isep.ipp.pt](mailto:1090626@isep.ipp.pt)
+* Marta Graça [1100640@isep.ipp.pt](mailto:1100640@isep.ipp.pt)
+* Sara Rego [1110637@isep.ipp.pt](mailto:1110637@isep.ipp.pt)
